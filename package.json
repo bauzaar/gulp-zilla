@@ -13,7 +13,6 @@
   "files": [
     "LICENSE",
     "Readme.md",
-    "gulpfile.js",
     "gulp_tasks/"
   ],
   "scripts": {
