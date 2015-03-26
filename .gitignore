@@ -1,0 +1,11 @@
+!.gitignore
+.*
+.idea
+*.py[cod]
+*.eml
+*.tar
+*.rar
+*.log
+*.zip
+Thumbs.db
+.DS_STORE
