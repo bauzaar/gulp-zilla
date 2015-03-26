@@ -1,9 +1,13 @@
 # gulp-fishbone
 
-## Config
+## Quick Start
 
   Before get started with gulp-fishbone you must create a gulpfile.js into your root folder
   here an example:
+
+```bash
+npm install git+ssh://git@github.com/gargoyl/gulp-fishbone.git
+```
 
 ```bash
 /*
