@@ -8,7 +8,7 @@
     "email": "andrea@bauzaar.com"
   }],
   "bin": {
-  "module-name": "gulp-fishbone"
+  "module-name": "./gulp_tasks"
 },
   "files": [
     "LICENSE",
