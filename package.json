@@ -4,11 +4,11 @@
   "description": "A bunch of useful gulp tasks",
   "author": "Fabio Cencetti <mail@kreo.me>",
   "contributors": [{
-  "name": "Andrea Rabbaglietti",
-  "email": "andrea@bauzaar.com"
-}],
+    "name": "Andrea Rabbaglietti",
+    "email": "andrea@bauzaar.com"
+  }],
   "bin": {
-  "module-name": "./bin/module-name"
+  "module-name": "./gulp_tasks"
 },
   "files": [
     "LICENSE",
