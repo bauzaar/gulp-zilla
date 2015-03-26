@@ -10,6 +10,12 @@
   "bin": {
   "module-name": "./bin/module-name"
 },
+  "files": [
+    "LICENSE",
+    "Readme.md",
+    "gulpfile.js",
+    "gulp_tasks/"
+  ],
   "scripts": {
   },
   "main": "",
