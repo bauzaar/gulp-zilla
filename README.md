@@ -33,7 +33,7 @@ var require_dir = require('require-dir');
 
 process.GULP_FISHBONE_PARAMS = {
   base: './path/to/base_folder',
-  assets: '/path/to/assets_folder/',
+  static_src: '/path/to/static_src_folder/',
   templates: '/path/to/templates_folder/'
 };
 
