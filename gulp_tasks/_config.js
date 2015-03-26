@@ -1,5 +1,5 @@
 var base = process.GULP_FISHBONE_PARAMS['base'],
-    src = base + process.GULP_FISHBONE_PARAMS['src'],
+    src = base + process.GULP_FISHBONE_PARAMS['assets'],
     tpl = base + process.GULP_FISHBONE_PARAMS['templates'],
     dest = src + '_dist/',
     dist_name = 'site',
