@@ -14,7 +14,7 @@ or if you need ssh
 npm install git+ssh://git@github.com/gargoyl/gulp-fishbone.git
 ```
 
-Then you must create a gulpfile.js into your root folder like this example
+Then you must create a gulpfile.js into your root folder
 
 ```bash
 /*
