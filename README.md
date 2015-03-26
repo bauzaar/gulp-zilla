@@ -26,7 +26,7 @@ var require_dir = require('require-dir');
 
 process.GULP_FISHBONE_PARAMS = {
   base: './path/to/base_folder',
-  src: '/path/to/src_folder/',
+  assets: '/path/to/assets_folder/',
   templates: '/path/to/templates_folder/'
 };
 
