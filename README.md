@@ -27,5 +27,5 @@ process.GULP_FISHBONE_PARAMS = {
 };
 
 // Require all tasks in gulp/tasks, including subfolders
-require_dir('./gulp_tasks', { recurse: true });
+require_dir('./node_modules/gulp-fishbone/gulp_tasks', { recurse: true });
 ```
