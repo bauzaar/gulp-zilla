@@ -1,0 +1,38 @@
+{
+  "name": "gulp-fishbone",
+  "version": "1.0.0",
+  "description": "A bunch of useful gulp tasks",
+  "author": "Fabio Cencetti <mail@kreo.me>",
+  "contributors": [{
+  "name": "Andrea Rabbaglietti",
+  "email": "andrea@bauzaar.com"
+}],
+  "bin": {
+  "module-name": "./bin/module-name"
+},
+  "scripts": {
+  },
+  "main": "",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/gargoyl/gulp-fishbone"
+},
+  "bugs": {
+  "url": "https://github.com/gargoyl/gulp-fishbone/issues"
+},
+  "keywords": [
+  "gulp",
+  "tasks",
+  "fishbone"
+],
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "preferGlobal": true,
+  "private": true,
+  "publishConfig": {
+},
+  "analyze": true,
+  "license": "BSD"
+}
