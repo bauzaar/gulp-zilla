@@ -6,6 +6,12 @@
   here an example:
 
 ```bash
+npm install git+https://git@github.com/gargoyl/gulp-fishbone.git
+```
+
+or if you need ssh
+
+```bash
 npm install git+ssh://git@github.com/gargoyl/gulp-fishbone.git
 ```
 
