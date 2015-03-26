@@ -2,7 +2,7 @@
 
 ## Quick Start
 
-  Before get started with gulp-fishbone you must create a gulpfile.js into your root folder
+  Before get started with gulp-fishbone you must create a gulpfile.js into your root folder and run npm install from terminal
   here an example:
 
 ```bash
