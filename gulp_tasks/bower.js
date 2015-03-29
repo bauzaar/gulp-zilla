@@ -49,21 +49,11 @@ $.gulp.task('bower:js', function () {
 
 $.gulp.task('bower:fonts', function () {
     return $.gulp.src([
-        config.bower.src + 'bootstrap/**.ttf',
-        config.bower.src + 'bootstrap/**.eot',
-        config.bower.src + 'bootstrap/**.svg',
-        config.bower.src + 'bootstrap/**.woff',
-        config.bower.src + 'bootstrap/**.woff2',
-        config.bower.src + 'font-awesome/**.ttf',
-        config.bower.src + 'font-awesome/**.eot',
-        config.bower.src + 'font-awesome/**.svg',
-        config.bower.src + 'font-awesome/**.woff',
-        config.bower.src + 'font-awesome/**.woff2',
-        config.bower.src + 'fuelux/**.ttf',
-        config.bower.src + 'fuelux/**.eot',
-        config.bower.src + 'fuelux/**.svg',
-        config.bower.src + 'fuelux/**.woff',
-        config.bower.src + 'fuelux/**.woff2'
+        config.bower.src + '**/*.ttf',
+        config.bower.src + '**/*.eot',
+        config.bower.src + '**/*.svg',
+        config.bower.src + '**/*.woff',
+        config.bower.src + '**/*.woff2'
     ])
         .pipe($.gulp.dest(config.bower.dest + '/fonts'))
         .on('error', config.modules.errors)
