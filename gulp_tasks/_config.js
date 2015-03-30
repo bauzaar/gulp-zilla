@@ -45,7 +45,8 @@ module.exports = {
         src: vendor_install,
         dest: dest,
         vendor: paths.vendor,
-        output_name: libs_name
+        output_name: libs_name,
+        vendor_order: GULP_FISHBONE_PARAMS['vendor_order']
     },
     sass: {
         src: paths.sass,

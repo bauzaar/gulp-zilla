@@ -30,15 +30,7 @@ $.gulp.task('bower:js', function () {
 
     return $.gulp.src(config.bower.src + '/**/**.js')
         .pipe(js_filter)
-        .pipe($.order([
-            'jquery/*.js',
-            'modernizr/*.js',
-            'bootstrap/*.js',
-            'fuelux/*.js',
-            'history.js/*.js',
-            'owl.carousel/*.js',
-            '**/*.js'
-        ]))
+        .pipe($.order(config.bower.vendor_order))
         .pipe($.concat(config.bower.output_name + '.js'))
         .pipe($.uglify())
         .pipe($.gulp.dest(config.bower.dest + '/js'))
