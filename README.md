@@ -34,7 +34,12 @@ var require_dir = require('require-dir');
 process.GULP_FISHBONE_PARAMS = {
   base: './path/to/base_folder',
   static_src: '/path/to/static_src_folder/',
-  templates: '/path/to/templates_folder/'
+  templates: '/path/to/templates_folder/',
+  vendor_order: [
+      'plugin-A/*.js',
+      'plugin-B/*.js',
+      '**/*.js'
+  ]
 };
 
 // Require all tasks in gulp/tasks, including subfolders
