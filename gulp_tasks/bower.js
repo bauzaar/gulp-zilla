@@ -49,11 +49,11 @@ $.gulp.task('bower:js', function () {
 
 $.gulp.task('bower:fonts', function () {
     return $.gulp.src([
-        config.bower.src + '**/*.ttf',
-        config.bower.src + '**/*.eot',
-        config.bower.src + '**/*.svg',
-        config.bower.src + '**/*.woff',
-        config.bower.src + '**/*.woff2'
+        config.bower.src + '*.ttf',
+        config.bower.src + '*.eot',
+        config.bower.src + '*.svg',
+        config.bower.src + '*.woff',
+        config.bower.src + '*.woff2'
     ])
         .pipe($.gulp.dest(config.bower.dest + '/fonts'))
         .on('error', config.modules.errors)
