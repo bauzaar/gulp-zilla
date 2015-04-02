@@ -36,10 +36,17 @@ module.exports = {
         sass: require('gulp-sass'),
         sourcemaps: require('gulp-sourcemaps'),
         rename: require('gulp-rename'),
-        run: require('gulp-run')
+        run: require('gulp-run'),
+        changed: require('gulp-changed'),
+        cache: require('gulp-cache'),
+        imagemin: require('imagemin')
     },
     markup: {
         src: tpl
+    },
+    images: {
+        src: src + 'img/',
+        dest: src + 'img/'
     },
     bower: {
         src: vendor_install,
