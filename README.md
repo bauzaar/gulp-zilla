@@ -35,11 +35,17 @@ process.GULP_FISHBONE_PARAMS = {
   base: './path/to/base_folder',
   static_src: '/path/to/static_src_folder/',
   templates: '/path/to/templates_folder/',
-  vendor_order: [
-      'plugin-A/*.js',
-      'plugin-B/*.js',
-      '**/*.js'
-  ]
+  vendor: {
+    order: [
+        'plugin-A/*.js',
+        'plugin-B/*.js',
+        '**/*.js'
+    ],
+    fonts: [
+        '/path/to/font-A/without/file',
+        '/path/to/font-B/without/file'
+    ]
+  }
 };
 
 // Require all tasks in gulp/tasks, including subfolders

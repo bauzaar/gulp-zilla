@@ -40,13 +40,15 @@ $.gulp.task('bower:js', function () {
 });
 
 $.gulp.task('bower:fonts', function () {
-    return $.gulp.src([
-        config.bower.src + '*/*.ttf',
-        config.bower.src + '*/*.eot',
-        config.bower.src + '*/*.svg',
-        config.bower.src + '*/*.woff',
-        config.bower.src + '*/*.woff2'
-    ])
+
+    var vendor_fonts = process.GULP_FISHBONE_PARAMS.vendor['fonts'];
+    var fonts_stack = [];
+
+    for (i = 0; i < vendor_fonts.length; i++) {
+        fonts_stack.push(config.bower.src + vendor_fonts[i] + '/*.{ttf,eot,svg, woff,woff2}')
+    }
+
+    return $.gulp.src(fonts_stack)
         .pipe($.gulp.dest(config.bower.dest + '/fonts'))
         .on('error', config.modules.errors)
         .pipe($.size({showFiles: true}))
