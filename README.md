@@ -41,6 +41,10 @@ process.GULP_FISHBONE_PARAMS = {
         'plugin-B/*.js',
         '**/*.js'
     ],
+    include_paths: [
+        './bower_components/plugin-A',
+        './bower_components/plugin-B'
+    ],
     fonts: [
         '/path/to/font-A/without/file',
         '/path/to/font-B/without/file'

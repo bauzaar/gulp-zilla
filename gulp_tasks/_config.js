@@ -60,8 +60,6 @@ module.exports = {
         dest: dest + 'css/',
         output_name: dist_name,
         settings: {
-            // Required if you want to use SASS syntax
-            // See https://github.com/dlmanning/gulp-sass/issues/81
             sourcemap: true,
             indentedSyntax: true,
             precision: 10,
@@ -69,8 +67,9 @@ module.exports = {
             sourceComments: 'sourceMap',
             sourceMapEmbed: true,
             sourceMapContents: true,
-            imagePath: '/img/', // Used by the image-url helper
-            omitSourceMapUrl: true
+            imagePath: '/img/',
+            omitSourceMapUrl: true,
+            includePaths: process.GULP_FISHBONE_PARAMS.vendor['include_paths']
         }
     },
     browserify: {
