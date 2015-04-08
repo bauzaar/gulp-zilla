@@ -15,7 +15,6 @@ $.gulp.task('_prod', ['clean:css', 'clean:js'], function () {
 
 $.gulp.task('_vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
     $.run('bower-installer').exec(function () {
-        $.run_sequence(['bower:js', 'bower:css', 'bower:fonts']);
+        $.run_sequence(['bower:js', 'bower:css', 'bower:fonts', 'bower:images']);
     });
 });
-
