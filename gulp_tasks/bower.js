@@ -9,16 +9,10 @@ $.gulp.task('bower:css', function () {
 
     return $.gulp.src(config.bower.src + '/**/**.css')
         .pipe(css_filter)
-        .pipe($.order([
-            'boostrap/bootstrap.css',
-            'fuelux/fuelux.css',
-            'font-awesome/font-awesome.css',
-            '**/*.css'
-        ]))
+        .pipe($.order(process.GULP_FISHBONE_PARAMS.vendor['order']))
         .pipe($.concat(config.bower.output_name + '.css'))
         .pipe($.minify())
-        .pipe($.replace(/([^'"(]*fonts\/|font\/)/g, './'))
-        .pipe($.replace(/([^'"(]*images\/|img\/)/g, './'))
+        .pipe($.replace(/([^'"(]*fonts\/|font\/images\/|img\/)/g, './'))
         .pipe($.gulp.dest(config.bower.dest))
         .on('error', config.modules.errors)
         .pipe($.size({showFiles: true}));
