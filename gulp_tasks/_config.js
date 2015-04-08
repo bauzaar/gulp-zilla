@@ -14,7 +14,11 @@ var base = process.GULP_FISHBONE_PARAMS['base'],
 
 module.exports = {
     plugins: {
+        glob: require('glob'),
+        bower: require('bower'),
+        browserify: require('browserify'),
         gulp: require('gulp'),
+        replace: require('gulp-replace'),
         filter: require('gulp-filter'),
         order: require('gulp-order'),
         concat: require('gulp-concat'),
@@ -25,7 +29,6 @@ module.exports = {
         del: require('del'),
         csswring: require('csswring'),
         postcss: require('gulp-postcss'),
-        browserify: require('browserify'),
         transform: require('vinyl-transform'),
         autoprefix: require('autoprefixer-core'),
         browser_sync: require('browser-sync'),
@@ -57,7 +60,7 @@ module.exports = {
     },
     sass: {
         src: paths.sass,
-        dest: dest + 'css/',
+        dest: dest,
         output_name: dist_name,
         settings: {
             sourcemap: true,
@@ -74,7 +77,7 @@ module.exports = {
     },
     browserify: {
         src: paths.js,
-        dest: dest + 'js/',
+        dest: dest,
         output_name: dist_name + '.js'
     },
     watch: {
@@ -89,7 +92,7 @@ module.exports = {
         js: dest + 'js/*.js'
     },
     clean: {
-        all: dest,
+        dist: dest,
         css: dest + '**/' + dist_name + '.{css,css.map}',
         js: dest + '**/' + dist_name + '.{js,js.map}',
         vendor_dist: dest + '**/' + libs_name + '.{js,css}',
