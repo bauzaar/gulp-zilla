@@ -9,6 +9,7 @@
   "name": "project_name",
   "dependencies": {
     "require-dir": "^0.3.0",
+    "glob": "^5.0.3",
     "bower": "^1.4.1",
     "gulp": "^3.8.11",
     "gulp-fishbone": "git+https://github.com/gargoyl/gulp-fishbone.git"
