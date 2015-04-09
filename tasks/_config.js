@@ -14,6 +14,7 @@ var base = process.GULP_FISHBONE_PARAMS['base'],
 
 module.exports = {
     plugins: {
+        glob: require('glob'),
         browserify: require('browserify'),
         replace: require('gulp-replace'),
         filter: require('gulp-filter'),
