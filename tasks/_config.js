@@ -1,3 +1,7 @@
+// ---------------------------------------------
+// gulp-fishbone - A bunch of useful gulp tasks
+// ---------------------------------------------
+
 var base = process.GULP_FISHBONE_PARAMS['base'],
     src = base + process.GULP_FISHBONE_PARAMS['static_src'],
     tpl = base + process.GULP_FISHBONE_PARAMS['templates'],
