@@ -10,12 +10,12 @@
     }
   ],
   "bin": {
-    "module-name": "./gulp_tasks"
+    "module-name": "./tasks"
   },
   "files": [
     "LICENSE",
     "Readme.md",
-    "gulp_tasks/"
+    "tasks/"
   ],
   "scripts": {
   },
