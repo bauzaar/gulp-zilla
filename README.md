@@ -81,3 +81,14 @@ and then you can update modules version simply run
 ``` bash
 npm-check-updates -u
 ```
+
+Now you must simpy include your into your base template
+
+``` html
+<link rel="stylesheet" href="path/to/static_src/_dist/site.css">
+<link rel="stylesheet" href="path/to/static_src/_dist/vendor.css">
+...
+<script src="path/to/static_src/_dist/vendor.js"></script>
+<script src="path/to/static_src/_dist/site.js"></script>
+```
+
