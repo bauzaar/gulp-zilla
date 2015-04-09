@@ -33,6 +33,8 @@
     "fishbone"
   ],
   "dependencies": {
+  },
+  "devDependencies": {
     "autoprefixer-core": "^5.1.8",
     "bower-installer": "^1.2.0",
     "browser-sync": "^2.5.3",
@@ -71,8 +73,6 @@
     "vinyl-paths": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vinyl-transform": "^1.0.0"
-  },
-  "devDependencies": {
   },
   "preferGlobal": true,
   "private": true,
