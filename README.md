@@ -82,7 +82,7 @@ and then you can update modules version simply run
 npm-check-updates -u
 ```
 
-Now you must simpy include your into your base template
+Now you must simpy include css and js dist into your base template
 
 ``` html
 <link rel="stylesheet" href="path/to/static_src/_dist/site.css">
