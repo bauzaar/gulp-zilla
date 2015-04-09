@@ -5,7 +5,6 @@
   Before get started with gulp-fishbone you must create a package.json into your root folder:
 
 ```json
-
 {
   "name": "project_name",
   "dependencies": {
@@ -16,7 +15,6 @@
   },
   "devDependencies": {}
 }
-
 ```
 
 Then you must run npm install from terminal
@@ -69,4 +67,17 @@ process.GULP_FISHBONE_PARAMS = {
 
 // Require all tasks in gulp/tasks, including subfolders
 require_dir('./node_modules/gulp-fishbone/gulp_tasks', { recurse: true });
+```
+
+
+For verify if node_modules need an update install npm-check-updates
+
+``` bash
+sudo npm install -g npm-check-updates
+```
+
+and then you can update modules version simply run
+
+``` bash
+npm-check-updates -u
 ```
