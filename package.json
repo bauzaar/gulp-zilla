@@ -39,7 +39,6 @@
     "browserify": "^9.0.8",
     "csswring": "^3.0.3",
     "del": "^1.1.1",
-    "glob": "^5.0.3",
     "gulp-cache": "^0.2.8",
     "gulp-changed": "^1.2.1",
     "gulp-concat": "^2.5.2",

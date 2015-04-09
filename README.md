@@ -21,6 +21,7 @@ Then you must run npm install from your project_root folder
 
 ```bash
 cd path/to/project_root/folder
+npm cache clean
 npm install
 ```
 
