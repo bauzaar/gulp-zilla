@@ -59,7 +59,9 @@ module.exports = {
         dest: dest,
         vendor: paths.vendor,
         output_name: libs_name,
-        vendor_order: process.GULP_FISHBONE_PARAMS.vendor['order']
+        vendor_order: process.GULP_FISHBONE_PARAMS.vendor['order'],
+        vendor_images: process.GULP_FISHBONE_PARAMS.vendor['images'],
+        vendor_fonts: process.GULP_FISHBONE_PARAMS.vendor['fonts']
     },
     sass: {
         src: paths.sass,

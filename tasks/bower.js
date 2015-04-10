@@ -9,7 +9,7 @@ $.gulp.task('bower:css', function () {
 
     return $.gulp.src(config.bower.src + '/**/**.css')
         .pipe(css_filter)
-        .pipe($.order(process.GULP_FISHBONE_PARAMS.vendor['order']))
+        .pipe($.order(config.bower['vendor_order']))
         .pipe($.concat(config.bower.output_name + '.css'))
         .pipe($.minify())
         .pipe($.replace(/([^'"(]*fonts\/|font\/|images\/|img\/)/g, './'))
@@ -26,7 +26,7 @@ $.gulp.task('bower:js', function () {
 
     return $.gulp.src(config.bower.src + '/**/**.js')
         .pipe(js_filter)
-        .pipe($.order(config.bower.vendor_order))
+        .pipe($.order(config.bower['vendor_order']))
         .pipe($.concat(config.bower.output_name + '.js'))
         .pipe($.uglify())
         .pipe($.gulp.dest(config.bower.dest))
@@ -41,11 +41,11 @@ $.gulp.task('bower:images', function () {
         return file.path.match(/\.gif|png|jpg|jpeg|cur$/i);
     });
 
-    var vendor_images = process.GULP_FISHBONE_PARAMS.vendor['images'];
+    var vendor_images = config.bower['vendor_images'];
     var image_stack = [];
 
     for (i = 0; i < vendor_images.length; i++) {
-        image_stack.push(config.bower.src + vendor_images[i] + '/**.{gif,png,jpg,jpeg,cur}')
+        image_stack.push(config.bower.src + vendor_images[i] + '/**.{gif,png,jpg,jpeg,cur}');
     }
 
     return $.gulp.src(image_stack)
@@ -57,7 +57,7 @@ $.gulp.task('bower:images', function () {
 
 $.gulp.task('bower:fonts', function () {
 
-    var vendor_fonts = process.GULP_FISHBONE_PARAMS.vendor['fonts'];
+    var vendor_fonts = config.bower['vendor_fonts'];
     var fonts_stack = [];
 
     for (i = 0; i < vendor_fonts.length; i++) {
