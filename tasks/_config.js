@@ -44,8 +44,7 @@ module.exports = {
         run: require('gulp-run'),
         changed: require('gulp-changed'),
         cache: require('gulp-cache'),
-        imagemin: require('imagemin'),
-        task_listing: require('gulp-task-listing')
+        imagemin: require('imagemin')
     },
     markup: {
         src: tpl
