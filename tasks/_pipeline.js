@@ -1,4 +1,4 @@
-var config = require('./_config'),
+var config = require('../config'),
     $ = config.plugins;
 
 $.gulp.task('_dev:debug', ['clean:css', 'clean:js'], function () {

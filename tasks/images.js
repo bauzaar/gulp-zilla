@@ -1,9 +1,9 @@
-var config = require('./_config'),
+var config = require('../config'),
     $ = config.plugins;
 
 $.gulp.task('images', function () {
-    $.gulp.src(config.images.src + '*.{gif,jpg,png,svg}')
-        .on('error', config.modules.errors)
-        .pipe($.gulp.dest(config.images.dest))
+    $.gulp.src(config.images['src'] + '*.{gif,jpg,png,svg}')
+        //.on('error', config.modules['errors'])
+        .pipe($.gulp.dest(config.images['dest']))
         .pipe($.size({showFiles: true}));
 });
