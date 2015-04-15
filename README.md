@@ -5,9 +5,9 @@
 Before get started with gulp-fishbone you must set into your .bashrc or .zshrc the global NODE_PATH
 
 ```bash
-if [ -d "/Users/mac/_github/gulp-fishbone/" ]
+if [ -d "/absolute/path/to/gulp-fishbone/" ]
 then
-    export NODE_PATH=/Users/mac/_github/
+    export NODE_PATH=/absolute/path/to/dir-parent/
 fi
 ```
 
