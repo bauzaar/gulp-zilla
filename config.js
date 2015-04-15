@@ -44,7 +44,8 @@ module.exports = {
         changed: require('gulp-changed'),
         cache: require('gulp-cache'),
         imagemin: require('imagemin'),
-        run_sequence: require('run-sequence').use(process.gulp)
+        run_sequence: require('run-sequence').use(process.gulp),
+        install: require('gulp-install')
     },
     html: {
         src: templates
@@ -103,5 +104,8 @@ module.exports = {
     },
     lib: {
         errors: require('./lib/errors')
+    },
+    install: {
+        src: ['./bower.json', './package.json']
     }
 };

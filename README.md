@@ -30,6 +30,15 @@ npm cache clean
 npm install
 ```
 
+Then you must set into your .bashrc or .zshrc the global NODE_PATH
+
+```bash
+if [ -d "/Users/mac/_github/gulp-fishbone/" ]
+then
+    export NODE_PATH=/Users/mac/_github/gulp-fishbone/
+fi
+```
+
 And then you must create a gulpfile.js at the same level
 
 ```javascript
@@ -45,10 +54,12 @@ And then you must create a gulpfile.js at the same level
   when you run `gulp`.
 */
 
-var require_dir = require('require-dir');
+var fs = require('fs'),
+    root_dir = process.cwd(),
+    relative_path = root_dir + '/node_modules/gulp-fishbone/';
 
 process.GULP_FISHBONE_PARAMS = {
-  base: process.cwd() + './path/to/base_folder',
+  base: root_dir + './path/to/base_folder',
   static_src: '/path/to/static_src_folder/',
   templates: '/path/to/templates_folder/',
   vendor: {
@@ -72,10 +83,12 @@ process.GULP_FISHBONE_PARAMS = {
   }
 };
 
-process.gulp = require('gulp');
-var gulp_fishbone = require(process.env.NODE_PATH + 'lib/init');
+if (fs.existsSync(relative_path)) {
+    process.env['NODE_PATH'] = relative_path
+}
 
-gulp_fishbone();
+process.gulp = require('gulp');
+require(process.env['NODE_PATH'] + 'lib/init')();
 
 ```
 
