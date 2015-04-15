@@ -2,7 +2,16 @@
 
 ## Quick Start
 
-  Before get started with gulp-fishbone you must create a package.json into your root folder:
+Before get started with gulp-fishbone you must set into your .bashrc or .zshrc the global NODE_PATH
+
+```bash
+if [ -d "/Users/mac/_github/gulp-fishbone/" ]
+then
+    export NODE_PATH=/Users/mac/_github/gulp-fishbone/
+fi
+```
+
+Then you must create a package.json into your root folder:
 
 ```json
 {
@@ -30,15 +39,6 @@ Then you must run npm install from your project_root folder
 cd path/to/project_root/folder
 npm cache clean
 npm install
-```
-
-Then you must set into your .bashrc or .zshrc the global NODE_PATH
-
-```bash
-if [ -d "/Users/mac/_github/gulp-fishbone/" ]
-then
-    export NODE_PATH=/Users/mac/_github/gulp-fishbone/
-fi
 ```
 
 And then you must create a gulpfile.js at the same level
