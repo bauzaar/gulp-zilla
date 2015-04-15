@@ -1,9 +1,11 @@
 var config = require('../lib/config'),
     $ = config.plugins;
 
+
 $.gulp.task('dev', ['clean:css', 'clean:js'], function () {
     $.run_sequence(['sass:dev', 'browserify:dev']);
 });
+
 
 $.gulp.task('prod', ['clean:css', 'clean:js'], function () {
     $.run_sequence(['sass:prod', 'browserify:prod'], 'postcss', ['minify', 'uglify']);

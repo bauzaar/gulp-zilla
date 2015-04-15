@@ -1,4 +1,4 @@
-var config = require('../lib/config'),
+var config = require('../../lib/config'),
     $ = config.plugins;
 
 $.gulp.task('postcss', function () {
