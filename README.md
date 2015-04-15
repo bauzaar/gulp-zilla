@@ -11,6 +11,11 @@ then
 fi
 ```
 
+And you must verify that gulp and bower are installed globally, if not you must run
+```bash
+sudo npm install -g gulp bower 
+```
+
 Then you must create a package.json into your root folder:
 
 ```json
@@ -118,16 +123,16 @@ And then you must create a gulpfile.js at the same level
   ===========
   Rather than manage one giant configuration file responsible
   for creating multiple tasks, each task has been broken out into
-  its own file in gulp/tasks. Any files in that directory get
+  its own file in ./tasks. Any files in that directory get
   automatically required below.
   To add a new task, simply add a new task file that directory.
-  gulp/tasks/default.js specifies the default set of tasks to run
-  when you run `gulp`.
+  ./tasks/default.js specifies the default set of tasks to run
+  when you run gulp.
 */
 
 var fs = require('fs'),
     root_dir = process.cwd(),
-    relative_path = root_dir + '/node_modules/gulp-fishbone/';
+    relative_path = root_dir + '/node_modules/';
 
 process.GULP_FISHBONE_PARAMS = {
   base: root_dir + './path/to/base_folder',
