@@ -14,11 +14,13 @@
   },
   "dependencies": {
     "bower": "^1.4.1",
+    "fs": "0.0.2",
     "glob": "^5.0.3",
-    "gulp": "^3.8.11",
-    "gulp-fishbone": "git+https://github.com/gargoyl/gulp-fishbone.git"
+    "gulp": "^3.8.11"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp-fishbone": "git+https://github.com/gargoyl/gulp-fishbone.git"
+  }
 }
 ```
 
