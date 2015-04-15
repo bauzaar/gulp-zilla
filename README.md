@@ -2,21 +2,14 @@
 
 ## Quick Start
 
-Before get started with gulp-fishbone you must set into your .bashrc or .zshrc the global NODE_PATH
-
-```bash
-if [ -d "/absolute/path/to/gulp-fishbone/" ]
-then
-    export NODE_PATH=/absolute/path/to/dir-parent/
-fi
-```
-
-And you must verify that gulp and bower are installed globally, if not you must run
+Before get started with gulp-fishbone, you must verify that gulp and bower are installed globally, 
+if not you must run
 ```bash
 sudo npm install -g gulp bower 
 ```
 And install gulp into local project dir
 ```bash
+cd path/to/project_root/folder
 npm install gulp
 ```
 
@@ -32,10 +25,8 @@ Then you must create a package.json into your root folder:
   },
   "dependencies": {
     "bower": "^1.4.1",
-    "fs": "0.0.2",
     "glob": "^5.0.5",
-    "gulp": "^3.8.11",
-    "gulp-fishbone": "git+https://github.com/gargoyl/gulp-fishbone.git"
+    "gulp": "^3.8.11"
   },
   "devDependencies": {}
 }
@@ -113,10 +104,9 @@ And a bower.json at the same level
 }
 ```
 
-Then you must run the following commands from terminal
+Then you must run the gulp install that create the node_modules and bower_components dependencies
 
 ```bash
-cd path/to/project_root/folder
 gulp install
 ```
 
@@ -135,9 +125,7 @@ And then you must create a gulpfile.js at the same level
   when you run gulp.
 */
 
-var fs = require('fs'),
-    root_dir = process.cwd(),
-    relative_path = root_dir + '/node_modules/',
+var root_dir = process.cwd(),
     bower_dir = './bower_components/';
 
 process.GULP_FISHBONE_PARAMS = {
@@ -165,12 +153,8 @@ process.GULP_FISHBONE_PARAMS = {
   }
 };
 
-if (fs.existsSync(relative_path)) {
-    process.env['NODE_PATH'] = relative_path
-}
-
 process.gulp = require('gulp');
-require(process.env['NODE_PATH'] + 'gulp-fishbone/index')();
+require('gulp-fishbone')();
 
 ```
 
@@ -181,7 +165,7 @@ For verify if node_modules need an update install npm-check-updates
 sudo npm install -g npm-check-updates
 ```
 
-and then you can update modules version simply run
+and then you can update modules version running
 
 ``` bash
 npm-check-updates -u
@@ -196,4 +180,9 @@ Now you must simpy include css and js dist into your base template
 <script src="path/to/static_src/_dist/vendor.js"></script>
 <script src="path/to/static_src/_dist/site.js"></script>
 ```
-
+-------------------------------------------------------------------------------------
+If you want install gulp-fishbone globally to many projects, you must set into
+.bashrc or .zshrc the global NODE_PATH
+```bash
+export NODE_PATH=/absolute/path/to/dir-parent/
+```
