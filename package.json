@@ -10,7 +10,7 @@
     }
   ],
   "bin": {
-    "module-name": "./tasks"
+    "gulp-fishbone": "index"
   },
   "files": [
     "LICENSE",

@@ -15,6 +15,10 @@ And you must verify that gulp and bower are installed globally, if not you must 
 ```bash
 sudo npm install -g gulp bower 
 ```
+And install gulp into local project dir
+```bash
+npm install gulp
+```
 
 Then you must create a package.json into your root folder:
 
