@@ -10,7 +10,7 @@
     }
   ],
   "bin": {
-    "gulp-fishbone": "index"
+    "module-name": "index"
   },
   "files": [
     "LICENSE",
