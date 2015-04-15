@@ -137,7 +137,8 @@ And then you must create a gulpfile.js at the same level
 
 var fs = require('fs'),
     root_dir = process.cwd(),
-    relative_path = root_dir + '/node_modules/';
+    relative_path = root_dir + '/node_modules/',
+    bower_dir = './bower_components/';
 
 process.GULP_FISHBONE_PARAMS = {
   base: root_dir + './path/to/base_folder',
@@ -150,8 +151,8 @@ process.GULP_FISHBONE_PARAMS = {
         '**/*.js'
     ],
     include_paths: [
-        './bower_components/plugin-A',
-        './bower_components/plugin-B'
+        bower_dir + 'path/to/plugin-A',
+        bower_dir + 'path/to/plugin-B'
     ],
     fonts: [
         '/path/to/font-A/without/file',
