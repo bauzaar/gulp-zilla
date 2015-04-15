@@ -19,7 +19,7 @@ Then you must create a package.json into your root folder:
   "description": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gargoyl/doggando"
+    "url": "https://github.com/path/to/project_name"
   },
   "dependencies": {
     "bower": "^1.4.1",
