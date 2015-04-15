@@ -18,6 +18,7 @@ var base = process.GULP_FISHBONE_PARAMS['base'],
 
 module.exports = {
     plugins: {
+        //load_plugins: require('gulp-load-plugins')(),
         gulp: process.gulp,
         browserify: require('browserify'),
         replace: require('gulp-replace'),
