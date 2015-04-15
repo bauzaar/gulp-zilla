@@ -105,7 +105,7 @@ And a bower.json at the same level
 }
 ```
 
-Then you must run gulp install from your project_root folder
+Then you must run the following commands from terminal
 
 ```bash
 cd path/to/project_root/folder
