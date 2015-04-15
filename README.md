@@ -22,10 +22,8 @@ Then you must create a package.json into your root folder:
     "url": "https://github.com/path/to/project_name"
   },
   "dependencies": {
-    "bower": "^1.4.1",
     "fs": "0.0.2",
-    "glob": "^5.0.5",
-    "gulp": "^3.8.11"
+    "glob": "^5.0.5"
   },
   "devDependencies": {
     "gulp-fishbone": "git+https://github.com/gargoyl/gulp-fishbone.git"
@@ -109,8 +107,7 @@ Then you must run the following commands from terminal
 
 ```bash
 cd path/to/project_root/folder
-npm cache clean
-gulp install:modules
+gulp install
 ```
 
 And then you must create a gulpfile.js at the same level
