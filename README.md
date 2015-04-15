@@ -181,7 +181,7 @@ Now you must simpy include css and js dist into your base template
 <script src="path/to/static_src/_dist/site.js"></script>
 ```
 -------------------------------------------------------------------------------------
-If you want that gulp-fishbone is glob to many projects, you must set into
+If you want that gulp-fishbone is global to many projects, you must set into
 .bashrc or .zshrc the global NODE_PATH
 ```bash
 export NODE_PATH=/absolute/path/to/dir-parent/
