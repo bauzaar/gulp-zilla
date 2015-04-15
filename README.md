@@ -110,7 +110,7 @@ Then you must run gulp install from your project_root folder
 ```bash
 cd path/to/project_root/folder
 npm cache clean
-gulp install
+gulp install:modules
 ```
 
 And then you must create a gulpfile.js at the same level
