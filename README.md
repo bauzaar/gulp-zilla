@@ -7,7 +7,7 @@ Before get started with gulp-fishbone you must set into your .bashrc or .zshrc t
 ```bash
 if [ -d "/Users/mac/_github/gulp-fishbone/" ]
 then
-    export NODE_PATH=/Users/mac/_github/gulp-fishbone/
+    export NODE_PATH=/Users/mac/_github/
 fi
 ```
 
@@ -90,7 +90,7 @@ if (fs.existsSync(relative_path)) {
 }
 
 process.gulp = require('gulp');
-require(process.env['NODE_PATH'] + 'lib/init')();
+require(process.env['NODE_PATH'] + 'gulp-fishbone/index')();
 
 ```
 
