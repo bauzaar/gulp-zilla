@@ -10,7 +10,7 @@
     }
   ],
   "bin": {
-    "module-name": "index"
+    "module-name": "./tasks"
   },
   "files": [
     "LICENSE",
@@ -20,7 +20,7 @@
     "index.js"
   ],
   "scripts": {},
-  "main": "",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/gargoyl/gulp-fishbone"
