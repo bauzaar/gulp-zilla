@@ -33,12 +33,84 @@ Then you must create a package.json into your root folder:
 }
 ```
 
-Then you must run npm install from your project_root folder
+And a bower.json at the same level
+
+```json
+{
+  "name": "project-name",
+  "version": "1.0",
+  "authors": [
+    "Name-1",
+    "Name-2"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "word-1",
+    "word-2"
+  ],
+  "license": "MIT",
+  "homepage": "http://project-name.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "*.map",
+    "*.json",
+    "*.md",
+    "*.editorconfig",
+    "*.yml",
+    "bower_components",
+    "node_modules",
+    "media",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "plugin-1": "~number-version",
+    "plugin-2": "~number-version"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "shim-plugin-1": "~number-version",
+    "shim-plugin-2": "~number-version"
+  },
+  "overrides": {
+    "if-you-use-main-bower-files": "plugin-path-to-override"
+  },
+  "install": {
+    "base": "path/to/static_src",
+    "path": "name_vendor_folder",
+    "sources": {
+      "plugin-1": [
+        "bower_components/path/to/plugin-1.js",
+        "bower_components/path/to/plugin-1.css",
+        "bower_components/path/to/fonts/*.**",
+        "bower_components/path/to/*.{gif,png,jpg,jpeg,svg}"
+      ],
+      "plugin-2": [
+        "bower_components/path/to/plugin-2.js",
+        "bower_components/path/to/plugin-2.css",
+        "bower_components/path/to/fonts/*.**",
+         "bower_components/path/to/*.{gif,png,jpg,jpeg,svg}"
+      ]
+    },
+    "ignore": [
+      "plugin-or-dependencies-to-ignore-1",
+      "plugin-or-dependencies-to-ignore-2"
+    ]
+  }
+}
+```
+
+Then you must run gulp install from your project_root folder
 
 ```bash
 cd path/to/project_root/folder
 npm cache clean
-npm install
+gulp install
 ```
 
 And then you must create a gulpfile.js at the same level
