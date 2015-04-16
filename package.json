@@ -81,7 +81,7 @@
   "devDependencies": {},
   "peerDependencies": {},
   "preferGlobal": true,
-  "private": true,
+  "private": false,
   "publishConfig": {},
   "analyze": true,
   "license": "BSD"
