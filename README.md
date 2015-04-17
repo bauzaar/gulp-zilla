@@ -1,28 +1,143 @@
 # Gulp Fishbone 
 
-A bunch of useful configurable Gulp tasks global to many projects.
+A bunch of useful configurable Gulp tasks global to many projects,
+to manage development and production tasks with ease.
+
+```bash
+(project_name)➜  project_name git:(master) gulp --tasks
+ Using gulpfile ~/path/to/project_name/gulpfile.js
+ Tasks for ~/path/to/project_name/gulpfile.js
+ ├─┬ dev
+ │ ├── clean:css
+ │ └── clean:js
+ ├─┬ prod
+ │ ├── clean:css
+ │ └── clean:js
+ ├─┬ vendor
+ │ ├── clean:vendor_install
+ │ └── clean:vendor_dist
+ ├── install
+ ├── watch
+ ├── bower:css
+ ├── bower:js
+ ├── bower:images
+ ├── bower:fonts
+ ├── browserify:dev
+ ├── browserify:prod
+ ├── clean:dist
+ ├── clean:css
+ ├── clean:js
+ ├── clean:vendor_dist
+ ├── clean:vendor_install
+ ├── clean:all
+ ├─┬ default
+ │ └── clean:all
+ ├── html:dev
+ ├── images
+ ├── install:npm_and_bower
+ ├── minify
+ ├── postcss
+ ├── sass:dev
+ ├── sass:prod
+ └── uglify
+```
+
+
+## Tasks
+
+### install
+
+Run this task to install bower and npm project's dependencies
+
+``` javascript
+$.gulp.task('install', function () {
+    $.run('npm cache clean').exec(function () {
+        $.run_sequence('install:npm_and_bower');
+    });
+});
+```
+
+### dev
+
+Run this task to:
+
+- clean any already generated JS/CSS file 
+- compile your SASS source files to one unified CSS file (with sourcemaps enabled)
+
+and, parallelly:
+
+- compile your JS browserify app file to one unified JS file (with sourcemaps enabled)  
+
+``` javascript
+$.gulp.task('dev', ['clean:css', 'clean:js'], function () {
+    $.run_sequence(['sass:dev', 'browserify:dev']);
+});
+```
+
+### prod
+
+Run this task to:
+
+- clean any already generated JS/CSS file 
+- compile your SASS source files to one unified and minified CSS file
+
+and, parallelly:
+
+- compile your JS browserify app file to one unified and uglified JS file
+
+then:
+
+- applies 'postcss' to CSS
+
+``` javascript
+$.gulp.task('prod', ['clean:css', 'clean:js'], function () {
+    $.run_sequence(['sass:prod', 'browserify:prod'], 'postcss', ['minify', 'uglify']);
+});
+```
+
+### vendor
+
+This task create a vendor folder into your static_src with your plugins 
+(images, fonts, and various assets of your choice), then 
+create two files vendor.js and vendor.css and exports those (including assets) to dist folder.
+
+``` javascript
+$.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
+    $.run('bower-installer').exec(function () {
+        $.run_sequence(['bower:js', 'bower:css', 'bower:fonts', 'bower:images']);
+    });
+});
+```
+
+### watch
+
+When you run this task, it will watch your project for changes.
+To use this you have to install livereload.
+
+
+``` javascript
+$.gulp.task('watch', function () {
+    $.gulp.watch(config.watch['sass'], ['clean:css', 'sass:dev']);
+    $.gulp.watch(config.watch['js'], ['clean:js', 'browserify:dev']);
+    $.gulp.watch(config.watch['html'], ['html:dev']);
+    $.gulp.watch(config.watch['bower'], ['vendor']);
+});
+```
+
 
 ## Install
 
 Before get started with gulp-fishbone, you must verify that gulp and bower are installed globally, 
-if not you must run
+and install gulp into local project dir
+
 ```bash
-sudo npm install -g gulp bower 
-```
-And install gulp into local project dir
-```bash
+sudo npm install -g gulp bower
 cd path/to/project_root/folder
-npm install gulp
+npm install gulp 
 ```
 
-If you want that gulp-fishbone is global to many projects without install from npm, 
-you have to clone this repo from github and set global env variable NODE_PATH like the following 
-(depending on your shell of choice)
-```bash
-export NODE_PATH=/absolute/path/to/dir-parent/
-```
+Then you can install gulp-fishbone
 
-if you want instead install from npm run
 ```bash
 sudo npm install -g gulp-fishbone
 ```
@@ -198,3 +313,7 @@ Now you must simpy include css and js dist into your base template
 <script src="path/to/static_src/_dist/vendor.js"></script>
 <script src="path/to/static_src/_dist/site.js"></script>
 ```
+
+
+
+
