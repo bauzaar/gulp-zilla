@@ -1,6 +1,8 @@
-# gulp-fishbone
+# Gulp Fishbone 
 
-## Quick Start
+A bunch of useful configurable Gulp tasks global to many projects.
+
+## Install
 
 Before get started with gulp-fishbone, you must verify that gulp and bower are installed globally, 
 if not you must run
@@ -13,7 +15,23 @@ cd path/to/project_root/folder
 npm install gulp
 ```
 
-Then you must create a package.json into your root folder:
+If you want that gulp-fishbone is global to many projects without install from npm, 
+you have to clone this repo from github and set global env variable NODE_PATH like the following 
+(depending on your shell of choice)
+```bash
+export NODE_PATH=/absolute/path/to/dir-parent/
+```
+
+if you want instead install from npm run
+```bash
+sudo npm install -g gulp-fishbone
+```
+
+## Usage
+
+To use:
+
+Create a package.json into your root folder:
 
 ```json
 {
@@ -179,11 +197,4 @@ Now you must simpy include css and js dist into your base template
 ...
 <script src="path/to/static_src/_dist/vendor.js"></script>
 <script src="path/to/static_src/_dist/site.js"></script>
-```
-
-If you want that gulp-fishbone is global to many projects, 
-you have to set global env variable NODE_PATH like the following 
-(depending on your shell of choice)
-```bash
-export NODE_PATH=/absolute/path/to/dir-parent/
 ```
