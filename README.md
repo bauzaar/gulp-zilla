@@ -3,10 +3,13 @@
 A bunch of useful configurable Gulp tasks global to many projects,
 to manage development and production tasks with ease.
 
+- Asset pipeline for SASS, JavaScript, images, and HTML that does compilation with souremaps
+and syntax checking in development mode and minification for production mode
+- Advanced Bower integration
+- Watch changed files with [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) integration
+
 ```bash
-(project_name)➜  project_name git:(master) gulp --tasks
- Using gulpfile ~/path/to/project_name/gulpfile.js
- Tasks for ~/path/to/project_name/gulpfile.js
+ $ gulp --tasks
  ├─┬ dev
  │ ├── clean:css
  │ └── clean:js
@@ -124,22 +127,21 @@ $.gulp.task('watch', function () {
 });
 ```
 
-
 ## Install
 
 Before get started with gulp-fishbone, you must verify that gulp and bower are installed globally, 
 and install gulp into local project dir
 
 ```bash
-sudo npm install -g gulp bower
-cd path/to/project_root/folder
-npm install gulp 
+$ sudo npm install -g gulp bower
+$ cd path/to/project_root/folder
+$ npm install gulp 
 ```
 
 Then you can install gulp-fishbone
 
 ```bash
-sudo npm install -g gulp-fishbone
+$ sudo npm install -g gulp-fishbone
 ```
 
 ## Usage
@@ -209,9 +211,6 @@ And a bower.json at the same level
     "shim-plugin-1": "~number-version",
     "shim-plugin-2": "~number-version"
   },
-  "overrides": {
-    "if-you-use-main-bower-files": "plugin-path-to-override"
-  },
   "install": {
     "base": "path/to/static_src",
     "path": "name_vendor_folder",
@@ -240,7 +239,7 @@ And a bower.json at the same level
 Then you must run the gulp install that create the node_modules and bower_components dependencies
 
 ```bash
-gulp install
+$ gulp install
 ```
 
 And then you must create a gulpfile.js at the same level
@@ -261,7 +260,7 @@ And then you must create a gulpfile.js at the same level
 var root_dir = process.cwd(),
     bower_dir = './bower_components/';
 
-process.GULP_FISHBONE_PARAMS = {
+global.GULP_FISHBONE_PARAMS = {
   base: root_dir + './path/to/base_folder',
   static_src: '/path/to/static_src_folder/',
   templates: '/path/to/templates_folder/',
@@ -286,7 +285,7 @@ process.GULP_FISHBONE_PARAMS = {
   }
 };
 
-process.gulp = require('gulp');
+global.gulp = require('gulp');
 require('gulp-fishbone')();
 
 ```
@@ -295,13 +294,13 @@ require('gulp-fishbone')();
 For verify if node_modules need an update install npm-check-updates
 
 ``` bash
-sudo npm install -g npm-check-updates
+$ sudo npm install -g npm-check-updates
 ```
 
 and then you can update modules version running
 
 ``` bash
-npm-check-updates -u
+$ npm-check-updates -u
 ```
 
 Now you must simpy include css and js dist into your base template
@@ -313,6 +312,10 @@ Now you must simpy include css and js dist into your base template
 <script src="path/to/static_src/_dist/vendor.js"></script>
 <script src="path/to/static_src/_dist/site.js"></script>
 ```
+
+## License
+
+This project is released under the BSD license.
 
 
 
