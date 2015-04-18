@@ -69,7 +69,6 @@
     "orchestrator": "^0.3.7",
     "postcss": "^4.1.5",
     "pretty-hrtime": "^1.0.0",
-    "rebase": "^0.3.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",
     "url": "^0.10.3",
