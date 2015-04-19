@@ -129,19 +129,24 @@ $.gulp.task('watch', function () {
 
 ## Install
 
-Before get started with gulp-fishbone, you must verify that gulp and bower are installed globally, 
-and install gulp into local project dir
+Before get started with gulp-fishbone, you must verify that gulp and bower are installed globally
 
 ```bash
 $ sudo npm install -g gulp bower
-$ cd path/to/project_root/folder
-$ npm install gulp 
 ```
 
 Then you can install gulp-fishbone
 
 ```bash
 $ sudo npm install -g gulp-fishbone
+```
+
+## Set Global Gulp
+
+You must add to your .bashrc or .zshenv the global node_modules path
+
+``` bash
+export NODE_PATH=/path/to/node_modules/
 ```
 
 ## Usage
@@ -159,9 +164,7 @@ Create a package.json into your root folder:
     "url": "https://github.com/path/to/project_name"
   },
   "dependencies": {
-    "bower": "^1.4.1",
-    "glob": "^5.0.5",
-    "gulp": "^3.8.11"
+    "glob": "^5.0.5"
   },
   "devDependencies": {}
 }

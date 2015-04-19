@@ -1,6 +1,6 @@
 {
   "name": "gulp-fishbone",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "A bunch of useful gulp tasks",
   "author": "Fabio Cencetti <mail@kreo.me>",
   "contributors": [
@@ -40,7 +40,6 @@
     "browserify": "^9.0.8",
     "csswring": "^3.0.3",
     "del": "^1.1.1",
-    "gulp": "^3.8.11",
     "gulp-cache": "^0.2.8",
     "gulp-changed": "^1.2.1",
     "gulp-concat": "^2.5.2",
@@ -66,7 +65,6 @@
     "gulp-util": "^3.0.4",
     "gulp-watch": "^4.2.4",
     "imagemin": "^3.1.0",
-    "orchestrator": "^0.3.7",
     "postcss": "^4.1.5",
     "pretty-hrtime": "^1.0.0",
     "require-dir": "^0.3.0",
