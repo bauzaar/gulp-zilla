@@ -153,22 +153,7 @@ export NODE_PATH=/path/to/node_modules/
 
 To use:
 
-Create a package.json into your root folder:
-
-```json
-{
-  "name": "project_name",
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/path/to/project_name"
-  },
-  "dependencies": {},
-  "devDependencies": {}
-}
-```
-
-And a bower.json at the same level
+Create a bower.json at the same level
 
 ```json
 {
