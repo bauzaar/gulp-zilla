@@ -35,6 +35,7 @@ and syntax checking in development mode and minification for production mode
  ├── clean:all
  ├─┬ default
  │ └── clean:all
+ ├── fonts
  ├── html:dev
  ├── images
  ├── install:dependecies
