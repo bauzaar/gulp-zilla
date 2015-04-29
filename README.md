@@ -163,9 +163,7 @@ Create a package.json into your root folder:
     "type": "git",
     "url": "https://github.com/path/to/project_name"
   },
-  "dependencies": {
-    "glob": "^5.0.5"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
 ```
