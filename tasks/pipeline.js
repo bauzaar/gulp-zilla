@@ -19,7 +19,7 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
 
 $.gulp.task('install', function () {
     $.run('npm cache clean').exec(function () {
-        $.run_sequence('install:npm_and_bower');
+        $.run_sequence('install:dependecies');
     });
 });
 
