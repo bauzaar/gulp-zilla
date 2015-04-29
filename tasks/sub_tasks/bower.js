@@ -2,7 +2,6 @@ var config = require('../../lib/config'),
     $ = config.plugins;
 
 $.gulp.task('bower:css', function () {
-
     var css_filter = $.filter(function (file) {
         return file.path.match(/\.css$/i);
     });
@@ -19,7 +18,6 @@ $.gulp.task('bower:css', function () {
 });
 
 $.gulp.task('bower:js', function () {
-
     var js_filter = $.filter(function (file) {
         return file.path.match(/\.js$/i);
     });
@@ -36,7 +34,6 @@ $.gulp.task('bower:js', function () {
 });
 
 $.gulp.task('bower:images', function () {
-
     var images_filter = $.filter(function (file) {
         return file.path.match(/\.gif|png|jpg|jpeg|cur$/i);
     });
@@ -56,7 +53,6 @@ $.gulp.task('bower:images', function () {
 });
 
 $.gulp.task('bower:fonts', function () {
-
     var vendor_fonts = config.bower['fonts'];
     var fonts_stack = [];
 
