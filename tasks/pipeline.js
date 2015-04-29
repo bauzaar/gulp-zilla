@@ -3,12 +3,12 @@ var config = require('../lib/config'),
 
 
 $.gulp.task('dev', ['clean:css', 'clean:js'], function () {
-    $.run_sequence(['sass:dev', 'browserify:dev']);
+    $.run_sequence(['sass:dev', 'browserify:dev', 'fonts']);
 });
 
 
 $.gulp.task('prod', ['clean:css', 'clean:js'], function () {
-    $.run_sequence(['sass:prod', 'browserify:prod'], 'postcss', ['minify', 'uglify']);
+    $.run_sequence(['sass:prod', 'browserify:prod', 'fonts'], 'postcss', ['minify', 'uglify']);
 });
 
 $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
