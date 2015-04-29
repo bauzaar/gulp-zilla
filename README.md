@@ -37,7 +37,7 @@ and syntax checking in development mode and minification for production mode
  │ └── clean:all
  ├── html:dev
  ├── images
- ├── install:npm_and_bower
+ ├── install:dependecies
  ├── minify
  ├── postcss
  ├── sass:dev
@@ -55,7 +55,7 @@ Run this task to install bower and npm project's dependencies
 ``` javascript
 $.gulp.task('install', function () {
     $.run('npm cache clean').exec(function () {
-        $.run_sequence('install:npm_and_bower');
+        $.run_sequence('install:dependecies');
     });
 });
 ```
@@ -153,7 +153,7 @@ export NODE_PATH=/path/to/node_modules/
 
 To use:
 
-Create a bower.json at the same level
+Create a bower.json into your project root
 
 ```json
 {
@@ -222,13 +222,13 @@ Create a bower.json at the same level
 }
 ```
 
-Then you must run the gulp install that create the node_modules and bower_components dependencies
+Then run the gulp install that create the node_modules and bower_components dependencies
 
 ```bash
 $ gulp install
 ```
 
-And then you must create a gulpfile.js at the same level
+And then create a gulpfile.js at the same level
 
 ```javascript
 /*
