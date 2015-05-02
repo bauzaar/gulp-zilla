@@ -247,7 +247,7 @@ And then create a gulpfile.js at the same level
 var root_dir = process.cwd(),
     bower_dir = './bower_components/';
 
-global.GULP_FISHBONE_PARAMS = {
+process.GULP_FISHBONE_PARAMS = {
   base: root_dir + './path/to/base_folder',
   static_src: '/path/to/static_src_folder/',
   templates: '/path/to/templates_folder/',
@@ -272,7 +272,7 @@ global.GULP_FISHBONE_PARAMS = {
   }
 };
 
-global.gulp = require('gulp');
+process.gulp = require('gulp');
 require('gulp-fishbone')();
 
 ```
