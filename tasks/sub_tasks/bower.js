@@ -1,10 +1,23 @@
 var config = require('../../lib/config'),
     $ = config.plugins;
 
-$.gulp.task('bower:css', function () {
-    var css_filter = $.filter(function (file) {
-        return file.path.match(/\.css$/i);
+function filter_src(src_regex) {
+    return $.filter(function (file) {
+        return file.path.match(src_regex);
     });
+}
+
+function create_src_stack(vendor_src, vendor_files) {
+    var vendor_stack = [];
+    for (i = 0; i < vendor_src.length; i++) {
+        vendor_stack.push(config.bower['src'] + vendor_src[i] + vendor_files);
+    }
+    return vendor_stack;
+}
+
+$.gulp.task('bower:css', function () {
+
+    var css_filter = filter_src(/\.css$/i);
 
     return $.gulp.src(config.bower['src'] + '/**/**.css')
         .pipe(css_filter)
@@ -18,9 +31,8 @@ $.gulp.task('bower:css', function () {
 });
 
 $.gulp.task('bower:js', function () {
-    var js_filter = $.filter(function (file) {
-        return file.path.match(/\.js$/i);
-    });
+
+    var js_filter = filter_src(/\.js$/i);
 
     return $.gulp.src(config.bower['src'] + '/**/**.js')
         .pipe(js_filter)
@@ -34,18 +46,10 @@ $.gulp.task('bower:js', function () {
 });
 
 $.gulp.task('bower:images', function () {
-    var images_filter = $.filter(function (file) {
-        return file.path.match(/\.gif|png|jpg|jpeg|cur$/i);
-    });
 
-    var vendor_images = config.bower['images'];
-    var image_stack = [];
+    var images_filter = filter_src(/\.gif|png|jpg|jpeg|cur$/i);
 
-    for (i = 0; i < vendor_images.length; i++) {
-        image_stack.push(config.bower['src'] + vendor_images[i] + '/**.{gif,png,jpg,jpeg,cur}');
-    }
-
-    return $.gulp.src(image_stack)
+    return $.gulp.src(create_src_stack(config.bower['images'], '/**.{gif,png,jpg,jpeg,cur}'))
         .pipe(images_filter)
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
@@ -53,14 +57,7 @@ $.gulp.task('bower:images', function () {
 });
 
 $.gulp.task('bower:fonts', function () {
-    var vendor_fonts = config.bower['fonts'];
-    var fonts_stack = [];
-
-    for (i = 0; i < vendor_fonts.length; i++) {
-        fonts_stack.push(config.bower['src'] + vendor_fonts[i] + '/*.{ttf,eot,svg,woff,woff2}')
-    }
-
-    return $.gulp.src(fonts_stack)
+    return $.gulp.src(create_src_stack(config.bower['fonts'], '/*.{ttf,eot,svg,woff,woff2}'))
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
         .pipe($.size({showFiles: true}))
