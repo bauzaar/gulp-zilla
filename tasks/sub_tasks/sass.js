@@ -21,6 +21,9 @@ $.gulp.task('sass:dev', function () {
 $.gulp.task('sass:prod', function () {
     return $.gulp.src(config.sass['src'])
         .pipe($.changed(config.sass['dest']))
+        .pipe($.globbing({
+            extensions: ['.scss', '.sass']
+        }))
         .pipe($.sass(config.sass['settings']))
         .on('error', config.lib['errors'])
         .pipe($.rename({basename: config.sass['output_name']}))
