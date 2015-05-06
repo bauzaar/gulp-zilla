@@ -252,6 +252,7 @@ process.GULP_FISHBONE_PARAMS = {
   static_src: '/path/to/static_src_folder/',
   templates: '/path/to/templates_folder/',
   vendor: {
+    gulp: require('gulp'),
     order: [
         'plugin-A/*.js',
         'plugin-B/*.js',
@@ -272,7 +273,6 @@ process.GULP_FISHBONE_PARAMS = {
   }
 };
 
-process.gulp = require('gulp');
 require('gulp-fishbone')();
 
 ```
