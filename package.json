@@ -1,6 +1,6 @@
 {
   "name": "gulp-fishbone",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "A bunch of useful gulp tasks",
   "author": "Fabio Cencetti <mail@kreo.me>",
   "contributors": [
@@ -23,10 +23,10 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gargoyl/gulp-fishbone"
+    "url": "https://github.com/code-zilla/gulp-fishbone"
   },
   "bugs": {
-    "url": "https://github.com/gargoyl/gulp-fishbone/issues"
+    "url": "https://github.com/code-zilla/gulp-fishbone/issues"
   },
   "keywords": [
     "gulp",
