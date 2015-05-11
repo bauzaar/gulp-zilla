@@ -22,8 +22,8 @@ $.gulp.task('install', function () {
 });
 
 $.gulp.task('watch', function () {
-    $.gulp.watch(config.watch['styles'], ['clean:css', 'sass:dev']);
-    $.gulp.watch(config.watch['scripts'], ['clean:js', 'browserify:dev']);
+    $.gulp.watch(config.watch['styles'], ['clean:css', 'styles']);
+    $.gulp.watch(config.watch['scripts'], ['clean:js', 'scripts']);
     $.gulp.watch(config.watch['markup'], ['markup']);
     $.gulp.watch(config.watch['bower'], ['vendor']);
 });

@@ -12,6 +12,6 @@ $.gulp.task('styles', function () {
         .pipe($.gulp_if(process.dev, $.sourcemaps.write({includeContent: true})))
         .pipe($.gulp.dest(config.sass['dest']))
         .pipe($.gulp_if(process.dev, $.browser_sync.reload({stream: true})))
-        .pipe($.gulp_if(process.dev, $.size({showFiles: true})))
+        .pipe($.size({showFiles: true}))
         .pipe($.gulp_if(process.dev, $.livereload()));
 });
