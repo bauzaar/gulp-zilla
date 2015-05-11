@@ -72,7 +72,7 @@ and, parallelly:
 
 ``` javascript
 $.gulp.task('dev', ['clean:css', 'clean:js'], function () {
-    $.run_sequence(['sass:dev', 'browserify:dev']);
+    $.run_sequence('target_dev', ['styles', 'scripts', 'fonts']);
 });
 ```
 
@@ -93,7 +93,7 @@ then:
 
 ``` javascript
 $.gulp.task('prod', ['clean:css', 'clean:js'], function () {
-    $.run_sequence(['sass:prod', 'browserify:prod'], 'postcss', ['minify', 'uglify']);
+    $.run_sequence('target_prod', ['styles', 'scripts', 'fonts'], 'postcss');
 });
 ```
 
@@ -119,9 +119,9 @@ To use this you have to install livereload.
 
 ``` javascript
 $.gulp.task('watch', function () {
-    $.gulp.watch(config.watch['sass'], ['clean:css', 'sass:dev']);
-    $.gulp.watch(config.watch['js'], ['clean:js', 'browserify:dev']);
-    $.gulp.watch(config.watch['html'], ['html:dev']);
+    $.gulp.watch(config.watch['styles'], ['clean:css', 'sass:dev']);
+    $.gulp.watch(config.watch['scripts'], ['clean:js', 'browserify:dev']);
+    $.gulp.watch(config.watch['markup'], ['markup']);
     $.gulp.watch(config.watch['bower'], ['vendor']);
 });
 ```
