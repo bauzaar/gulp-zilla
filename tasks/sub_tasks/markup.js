@@ -1,7 +1,7 @@
 var config = require('../../lib/config'),
     $ = config.plugins;
 
-$.gulp.task('html:dev', function () {
+$.gulp.task('markup', function () {
     return $.gulp.src(config.html['src'])
-        .pipe($.livereload());
+        .pipe($.gulp_if(process.dev, $.livereload()))
 });

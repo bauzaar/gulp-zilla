@@ -25,8 +25,6 @@ and syntax checking in development mode and minification for production mode
  ├── bower:js
  ├── bower:images
  ├── bower:fonts
- ├── browserify:dev
- ├── browserify:prod
  ├── clean:dist
  ├── clean:css
  ├── clean:js
@@ -35,15 +33,15 @@ and syntax checking in development mode and minification for production mode
  ├── clean:all
  ├─┬ default
  │ └── clean:all
+ ├── target_dev
+ ├── target_prod
  ├── fonts
- ├── html:dev
  ├── images
  ├── install:dependecies
- ├── minify
+ ├── markup
  ├── postcss
- ├── sass:dev
- ├── sass:prod
- └── uglify
+ ├── scripts
+ └── styles
 ```
 
 

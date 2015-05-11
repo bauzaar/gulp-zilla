@@ -2,6 +2,7 @@ var config = require('../../lib/config'),
     $ = config.plugins;
 
 $.gulp.task('postcss', function () {
+
     var processors = [
         $.autoprefix({browsers: ['last 5 version']}),
         $.csswring({
@@ -9,7 +10,10 @@ $.gulp.task('postcss', function () {
             removeAllComments: true
         })
     ];
-    return $.gulp.src(config.sass['dest'] + '*.css')
+
+    return $.gulp.src(config.sass['dest'] + config.sass['output_name'] + '.css')
         .pipe($.postcss(processors))
-        .pipe($.gulp.dest(config.sass['dest']));
+        .pipe($.streamify($.gulp_if(process.prod, $.minify())))
+        .pipe($.gulp.dest(config.sass['dest']))
+        .pipe($.size({showFiles: true}));
 });

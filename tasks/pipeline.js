@@ -2,11 +2,11 @@ var config = require('../lib/config'),
     $ = config.plugins;
 
 $.gulp.task('dev', ['clean:css', 'clean:js'], function () {
-    $.run_sequence(['sass:dev', 'browserify:dev', 'fonts']);
+    $.run_sequence('target_dev', ['styles', 'scripts', 'fonts']);
 });
 
 $.gulp.task('prod', ['clean:css', 'clean:js'], function () {
-    $.run_sequence(['sass:prod', 'browserify:prod', 'fonts'], 'postcss', ['minify', 'uglify']);
+    $.run_sequence('target_prod', ['styles', 'scripts', 'fonts'], 'postcss');
 });
 
 $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
@@ -22,8 +22,8 @@ $.gulp.task('install', function () {
 });
 
 $.gulp.task('watch', function () {
-    $.gulp.watch(config.watch['sass'], ['clean:css', 'sass:dev']);
-    $.gulp.watch(config.watch['js'], ['clean:js', 'browserify:dev']);
-    $.gulp.watch(config.watch['html'], ['html:dev']);
+    $.gulp.watch(config.watch['styles'], ['clean:css', 'sass:dev']);
+    $.gulp.watch(config.watch['scripts'], ['clean:js', 'browserify:dev']);
+    $.gulp.watch(config.watch['markup'], ['markup']);
     $.gulp.watch(config.watch['bower'], ['vendor']);
 });
