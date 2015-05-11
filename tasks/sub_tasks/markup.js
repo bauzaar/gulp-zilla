@@ -3,5 +3,5 @@ var config = require('../../lib/config'),
 
 $.gulp.task('markup', function () {
     return $.gulp.src(config.html['src'])
-        .pipe($.gulp_if(process.dev, $.livereload()))
+        .pipe($.gulp_if(!process.prod, $.livereload()))
 });

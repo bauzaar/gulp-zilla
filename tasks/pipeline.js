@@ -1,12 +1,10 @@
 var config = require('../lib/config'),
     $ = config.plugins;
 
-$.gulp.task('dev', ['clean:css', 'clean:js'], function () {
-    $.run_sequence('target_dev', ['styles', 'scripts', 'fonts']);
-});
-
-$.gulp.task('prod', ['clean:css', 'clean:js'], function () {
-    $.run_sequence('target_prod', ['styles', 'scripts', 'fonts'], 'postcss');
+$.gulp.task('install', function () {
+    $.run('npm cache clean').exec(function () {
+        $.run_sequence('install:dependecies');
+    });
 });
 
 $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
@@ -15,10 +13,12 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
     });
 });
 
-$.gulp.task('install', function () {
-    $.run('npm cache clean').exec(function () {
-        $.run_sequence('install:dependecies');
-    });
+$.gulp.task('dev', ['clean:css', 'clean:js'], function () {
+    $.run_sequence('target_dev', ['styles', 'scripts', 'fonts']);
+});
+
+$.gulp.task('prod', ['clean:css', 'clean:js'], function () {
+    $.run_sequence('target_prod', ['styles', 'scripts', 'fonts'], 'postcss', 'vendor');
 });
 
 $.gulp.task('watch', function () {

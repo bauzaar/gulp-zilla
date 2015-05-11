@@ -93,7 +93,7 @@ then:
 
 ``` javascript
 $.gulp.task('prod', ['clean:css', 'clean:js'], function () {
-    $.run_sequence('target_prod', ['styles', 'scripts', 'fonts'], 'postcss');
+    $.run_sequence('target_prod', ['styles', 'scripts', 'fonts'], 'postcss', 'vendor');
 });
 ```
 
