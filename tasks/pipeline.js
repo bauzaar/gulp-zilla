@@ -14,11 +14,11 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
 });
 
 $.gulp.task('dev', ['clean:css', 'clean:js'], function () {
-    $.run_sequence('target_dev', ['styles', 'scripts', 'fonts']);
+    $.run_sequence('target:dev', ['styles', 'scripts', 'fonts']);
 });
 
 $.gulp.task('prod', ['clean:all'], function () {
-    $.run_sequence('target_prod', 'vendor', ['styles', 'scripts', 'fonts'], 'postcss');
+    $.run_sequence('target:prod', 'vendor', ['styles', 'scripts', 'fonts'], 'postcss');
 });
 
 $.gulp.task('watch', function () {

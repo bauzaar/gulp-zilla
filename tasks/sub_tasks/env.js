@@ -1,10 +1,10 @@
 var config = require('../../lib/config'),
     $ = config.plugins;
 
-$.gulp.task('target_dev', function () {
+$.gulp.task('target:dev', function () {
     process.prod = false;
 });
 
-$.gulp.task('target_prod', function () {
+$.gulp.task('target:prod', function () {
     process.prod = true;
 });
