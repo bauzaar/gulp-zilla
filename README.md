@@ -123,16 +123,16 @@ $.gulp.task('watch', function () {
 
 ## Install
 
-Before get started with gulp-fishbone, you must verify that gulp and bower are installed globally
+Before get started with gulp-zilla, you must verify that gulp and bower are installed globally
 
 ```bash
 $ sudo npm install -g gulp bower
 ```
 
-Then you can install gulp-fishbone
+Then you can install gulp-zilla
 
 ```bash
-$ sudo npm install -g gulp-fishbone
+$ sudo npm install -g gulp-zilla
 ```
 
 ## Set Global Gulp
@@ -240,7 +240,7 @@ And then create a gulpfile.js at the same level
 var root_dir = process.cwd(),
     bower_dir = './bower_components/';
 
-process.GULP_FISHBONE_PARAMS = {
+process.GULP_ZILLA_PARAMS = {
   base: root_dir + './path/to/base_folder',
   static_src: '/path/to/static_src_folder/',
   templates: '/path/to/templates_folder/',
@@ -266,7 +266,7 @@ process.GULP_FISHBONE_PARAMS = {
   }
 };
 
-require('gulp-fishbone')();
+require('gulp-zilla')();
 
 ```
 
