@@ -33,8 +33,8 @@ and syntax checking in development mode and minification for production mode
  ├── clean:all
  ├─┬ default
  │ └── clean:all
- ├── target_dev
- ├── target_prod
+ ├── mode:dev
+ ├── mode:prod
  ├── fonts
  ├── images
  ├── install:dependecies
@@ -71,7 +71,7 @@ and, parallelly:
 
 ``` javascript
 $.gulp.task('dev', ['clean:css', 'clean:js'], function () {
-    $.run_sequence('target_dev', ['styles', 'scripts', 'fonts']);
+    $.run_sequence('mode:dev', ['styles', 'scripts', 'fonts']);
 });
 ```
 
@@ -88,7 +88,7 @@ and, parallelly:
 
 ``` javascript
 $.gulp.task('prod', ['clean:all'], function () {
-    $.run_sequence('target:prod', ['styles', 'scripts', 'fonts']);
+    $.run_sequence('mode:prod', ['styles', 'scripts', 'fonts']);
 });
 ```
 
