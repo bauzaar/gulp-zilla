@@ -39,7 +39,6 @@ and syntax checking in development mode and minification for production mode
  ├── images
  ├── install:dependecies
  ├── markup
- ├── postcss
  ├── scripts
  └── styles
 ```
@@ -87,13 +86,9 @@ and, parallelly:
 
 - compile your JS browserify app file to one unified and uglified JS file
 
-then:
-
-- applies 'postcss' to CSS
-
 ``` javascript
-$.gulp.task('prod', ['clean:css', 'clean:js'], function () {
-    $.run_sequence('target_prod', ['styles', 'scripts', 'fonts'], 'postcss', 'vendor');
+$.gulp.task('prod', ['clean:all'], function () {
+    $.run_sequence('target:prod', ['styles', 'scripts', 'fonts']);
 });
 ```
 

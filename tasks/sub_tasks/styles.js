@@ -9,6 +9,7 @@ $.gulp.task('styles', function () {
         .pipe($.sass(config.sass['settings']))
         .on('error', config.lib['errors'])
         .pipe($.rename({basename: config.sass['output_name']}))
+        .pipe($.autoprefixer(config.sass['autoprefixer']))
         .pipe($.gulp_if(!process.prod, $.sourcemaps.write({includeContent: true})))
         .pipe($.gulp.dest(config.sass['dest']))
         .pipe($.gulp_if(!process.prod, $.browser_sync.reload({stream: true})))
