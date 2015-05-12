@@ -11,23 +11,23 @@ and syntax checking in development mode and minification for production mode
 ```bash
  $ gulp --tasks
  ├─┬ dev
- │ ├── clean:css
- │ └── clean:js
+ │ ├── clean:styles
+ │ └── clean:scripts
  ├─┬ prod
- │ ├── clean:css
- │ └── clean:js
+ │ ├── clean:styles
+ │ └── clean:scripts
  ├─┬ vendor
  │ ├── clean:vendor_install
  │ └── clean:vendor_dist
  ├── install
  ├── watch
- ├── bower:css
- ├── bower:js
+ ├── bower:styles
+ ├── bower:scripts
  ├── bower:images
  ├── bower:fonts
  ├── clean:dist
- ├── clean:css
- ├── clean:js
+ ├── clean:styles
+ ├── clean:scripts
  ├── clean:vendor_dist
  ├── clean:vendor_install
  ├── clean:all
@@ -101,7 +101,7 @@ create two files vendor.js and vendor.css and exports those (including assets) t
 ``` javascript
 $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
     $.run('bower-installer').exec(function () {
-        $.run_sequence(['bower:js', 'bower:css', 'bower:fonts', 'bower:images']);
+        $.run_sequence(['bower:scripts', 'bower:styles', 'bower:fonts', 'bower:images']);
     });
 });
 ```

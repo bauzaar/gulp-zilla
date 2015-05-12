@@ -5,11 +5,11 @@ $.gulp.task('clean:dist', function () {
     $.del(config.clean.dist)
 });
 
-$.gulp.task('clean:css', function () {
+$.gulp.task('clean:styles', function () {
     $.del(config.clean.css)
 });
 
-$.gulp.task('clean:js', function () {
+$.gulp.task('clean:scripts', function () {
     $.del(config.clean.js)
 });
 
