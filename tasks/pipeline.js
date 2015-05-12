@@ -17,7 +17,7 @@ $.gulp.task('dev', ['clean:css', 'clean:js'], function () {
     $.run_sequence('mode:dev', ['styles', 'scripts', 'fonts']);
 });
 
-$.gulp.task('prod', ['clean:all'], function () {
+$.gulp.task('prod', ['clean:css', 'clean:js'], function () {
     $.run_sequence('mode:prod', ['styles', 'scripts', 'fonts']);
 });
 

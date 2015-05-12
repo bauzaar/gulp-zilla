@@ -23,7 +23,11 @@ $.gulp.task('bower:css', function () {
         .pipe(css_filter)
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.css'))
-        .pipe($.gulp_if(process.prod, $.minify()))
+        .pipe($.gulp_if(process.prod, $.minify({
+            keepBreaks: false,
+            keepSpecialComments: 0,
+            shorthandCompacting: true
+        })))
         .pipe($.replace(/([^'"(]*fonts\/|font\/|images\/|img\/)/g, './'))
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
