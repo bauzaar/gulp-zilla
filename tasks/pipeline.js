@@ -9,7 +9,7 @@ $.gulp.task('install', function () {
 
 $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
     $.run('bower-installer').exec(function () {
-        $.run_sequence(['bower:js', 'bower:css', 'bower:fonts', 'bower:images']);
+        $.run_sequence(['bower:scripts', 'bower:styles', 'bower:fonts', 'bower:images']);
     });
 });
 

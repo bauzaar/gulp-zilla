@@ -15,7 +15,7 @@ function create_src_stack(vendor_src, vendor_files) {
     return vendor_stack;
 }
 
-$.gulp.task('bower:css', function () {
+$.gulp.task('bower:styles', function () {
 
     var css_filter = filter_src(/\.css$/i);
 
@@ -23,18 +23,18 @@ $.gulp.task('bower:css', function () {
         .pipe(css_filter)
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.css'))
-        .pipe($.gulp_if(process.prod, $.minify({
+        .pipe($.replace(/([^'"(]*fonts\/|font\/|images\/|img\/)/g, './'))
+        .pipe($.minify({
             keepBreaks: false,
             keepSpecialComments: 0,
             shorthandCompacting: true
-        })))
-        .pipe($.replace(/([^'"(]*fonts\/|font\/|images\/|img\/)/g, './'))
+        }))
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
         .pipe($.size({showFiles: true}));
 });
 
-$.gulp.task('bower:js', function () {
+$.gulp.task('bower:scripts', function () {
 
     var js_filter = filter_src(/\.js$/i);
 
@@ -42,7 +42,7 @@ $.gulp.task('bower:js', function () {
         .pipe(js_filter)
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.js'))
-        .pipe($.gulp_if(process.prod, $.uglify()))
+        .pipe($.uglify())
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
         .pipe($.size({showFiles: true}))
