@@ -240,7 +240,7 @@ And then create a gulpfile.js at the same level
 var root_dir = process.cwd(),
     bower_dir = './bower_components/';
 
-process.GULP_ZILLA_PARAMS = {
+process.GULP_ZILLA = {
   base: root_dir + './path/to/base_folder',
   static_src: '/path/to/static_src_folder/',
   templates: '/path/to/templates_folder/',
