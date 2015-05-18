@@ -13,12 +13,9 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
     });
 });
 
-$.gulp.task('dev', ['clean:styles', 'clean:scripts'], function () {
-    $.run_sequence('mode:dev', ['styles', 'scripts', 'fonts']);
-});
-
-$.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
-    $.run_sequence('mode:prod', ['styles', 'scripts', 'fonts']);
+$.gulp.task('build',['clean:styles', 'clean:scripts'], function () {
+    process.prod = !!$.argv.prod;
+    $.run_sequence(['styles', 'scripts', 'fonts']);
 });
 
 $.gulp.task('watch', function () {
