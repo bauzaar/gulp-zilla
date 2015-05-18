@@ -13,7 +13,7 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
     });
 });
 
-$.gulp.task('build',['clean:styles', 'clean:scripts'], function () {
+$.gulp.task('build', ['clean:styles', 'clean:scripts'], function () {
     process.prod = !!$.argv.prod;
     $.run_sequence(['styles', 'scripts', 'fonts']);
 });
