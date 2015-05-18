@@ -10,12 +10,7 @@ and syntax checking in development mode and minification for production mode
 
 ```bash
  $ gulp --tasks
- ├─┬ dev
- │ ├── clean:styles
- │ └── clean:scripts
- ├─┬ prod
- │ ├── clean:styles
- │ └── clean:scripts
+ ├─┬ build
  ├─┬ vendor
  │ ├── clean:vendor_install
  │ └── clean:vendor_dist
@@ -33,8 +28,6 @@ and syntax checking in development mode and minification for production mode
  ├── clean:all
  ├─┬ default
  │ └── clean:all
- ├── mode:dev
- ├── mode:prod
  ├── fonts
  ├── images
  ├── install:dependecies
@@ -58,37 +51,22 @@ $.gulp.task('install', function () {
 });
 ```
 
-### dev
+### build
 
 Run this task to:
 
 - clean any already generated JS/CSS file 
-- compile your SASS source files to one unified CSS file (with sourcemaps enabled)
+- compile your SASS files to one unified file (with sourcemaps enabled) and minified CSS file removing 
+sourcemaps if --prod flag is true
 
 and, parallelly:
-
-- compile your JS browserify app file to one unified JS file (with sourcemaps enabled)  
-
-``` javascript
-$.gulp.task('dev', ['clean:css', 'clean:js'], function () {
-    $.run_sequence('mode:dev', ['styles', 'scripts', 'fonts']);
-});
-```
-
-### prod
-
-Run this task to:
-
-- clean any already generated JS/CSS file 
-- compile your SASS source files to one unified and minified CSS file
-
-and, parallelly:
-
-- compile your JS browserify app file to one unified and uglified JS file
+- compile your JS browserify files to one unified file (with sourcemaps enabled) and uglified JS file removing 
+  sourcemaps if --prod flag is true
 
 ``` javascript
-$.gulp.task('prod', ['clean:all'], function () {
-    $.run_sequence('mode:prod', ['styles', 'scripts', 'fonts']);
+$.gulp.task('build',['clean:styles', 'clean:scripts'], function () {
+    process.prod = !!$.argv.prod;
+    $.run_sequence(['styles', 'scripts', 'fonts']);
 });
 ```
 
