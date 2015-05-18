@@ -94,7 +94,7 @@ $.gulp.task('prod', ['clean:all'], function () {
 
 ### vendor
 
-This task create a vendor folder into your static_src with your plugins 
+This task create a vendor folder into your static with your plugins 
 (images, fonts, and various assets of your choice), then 
 create two files vendor.js and vendor.css and exports those (including assets) to dist folder.
 
@@ -192,7 +192,7 @@ Create a bower.json into your project root
     "shim-plugin-2": "~number-version"
   },
   "install": {
-    "base": "path/to/static_src",
+    "base": "path/to/static",
     "path": "name_vendor_folder",
     "sources": {
       "plugin-1": [
@@ -242,7 +242,7 @@ var root_dir = process.cwd(),
 
 process.GULP_ZILLA = {
   base: root_dir + './path/to/base_folder',
-  static_src: '/path/to/static_src_folder/',
+  static: '/path/to/static_folder/',
   templates: '/path/to/templates_folder/',
   vendor: {
     gulp: require('gulp'),
@@ -286,11 +286,11 @@ $ npm-check-updates -u
 Now you must simpy include css and js dist into your base template
 
 ``` html
-<link rel="stylesheet" href="path/to/static_src/_dist/site.css">
-<link rel="stylesheet" href="path/to/static_src/_dist/vendor.css">
+<link rel="stylesheet" href="path/to/static/_dist/site.css">
+<link rel="stylesheet" href="path/to/static/_dist/vendor.css">
 ...
-<script src="path/to/static_src/_dist/vendor.js"></script>
-<script src="path/to/static_src/_dist/site.js"></script>
+<script src="path/to/static/_dist/vendor.js"></script>
+<script src="path/to/static/_dist/site.js"></script>
 ```
 
 ## License
