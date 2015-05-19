@@ -10,7 +10,6 @@ function create_src_stack(vendor_src, vendor_files) {
 }
 
 $.gulp.task('bower:styles', function () {
-
     return $.gulp.src(config.bower['src'] + '/**/**.css')
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.css'))
@@ -26,7 +25,6 @@ $.gulp.task('bower:styles', function () {
 });
 
 $.gulp.task('bower:scripts', function () {
-
     return $.gulp.src(config.bower['src'] + '/**/**.js')
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.js'))
@@ -37,7 +35,6 @@ $.gulp.task('bower:scripts', function () {
 });
 
 $.gulp.task('bower:images', function () {
-
     return $.gulp.src(create_src_stack(config.bower['images'], '/**.{gif,png,jpg,jpeg,cur}'))
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
