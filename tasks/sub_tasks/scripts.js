@@ -1,7 +1,7 @@
 var config = require('../../lib/config'),
     $ = config.plugins;
 
-$.gulp.task('scripts', function () {
+$.gulp.task('scripts:build', function () {
     return $.browserify({entries: [config.browserify['src']], debug: !process.prod})
         .bundle()
         .on('error', config.lib['errors'])

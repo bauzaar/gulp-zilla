@@ -1,6 +1,6 @@
 {
   "name": "gulp-zilla",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "A bunch of useful gulp tasks",
   "author": "Fabio Cencetti <mail@kreo.me>",
   "contributors": [
@@ -65,6 +65,7 @@
     "gulp-size": "^1.2.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-streamify": "^0.0.5",
+    "gulp-task-listing": "^1.0.0",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4",
     "gulp-watch": "^4.2.4",

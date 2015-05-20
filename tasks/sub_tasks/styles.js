@@ -1,7 +1,7 @@
 var config = require('../../lib/config'),
     $ = config.plugins;
 
-$.gulp.task('styles', function () {
+$.gulp.task('styles:build', function () {
     return $.gulp.src(config.sass['src'])
         .pipe($.changed(config.sass['dest']))
         .pipe($.gulp_if(!process.prod, $.sourcemaps.init()))

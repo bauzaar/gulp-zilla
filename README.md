@@ -9,18 +9,38 @@ and syntax checking in development mode and minification for production mode
 - Watch changed files with [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) integration
 
 ```bash
- $ gulp --tasks
- ├── install
- ├─┬ vendor
- │ ├── clean:vendor_install
- │ └── clean:vendor_dist
- ├─┬ dev
- │ ├── clean:styles
- │ └── clean:scripts
- ├─┬ prod
- │ ├── clean:styles
- │ └── clean:scripts
- └── watch
+ gulp ls
+ Using gulpfile ~/path/to/gulpfile.js
+ Starting 'ls'...
+ 
+ Main Tasks
+ ------------------------------
+     default
+     dev
+     install
+     ls
+     prod
+     vendor
+     watch
+ 
+ Sub Tasks
+ ------------------------------
+     bower:fonts
+     bower:images
+     bower:scripts
+     bower:styles
+     clean:all
+     clean:dist
+     clean:scripts
+     clean:styles
+     clean:vendor_dist
+     clean:vendor_install
+     fonts:build
+     images:build
+     install:dependecies
+     markup:watch
+     scripts:build
+     styles:build
 ```
 
 
