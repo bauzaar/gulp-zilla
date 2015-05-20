@@ -10,7 +10,8 @@ and syntax checking in development mode and minification for production mode
 
 ```bash
  $ gulp --tasks
- ├─┬ build
+ ├─┬ dev
+ ├─┬ prod
  ├─┬ vendor
  │ ├── clean:vendor_install
  │ └── clean:vendor_dist
