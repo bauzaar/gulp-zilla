@@ -20,25 +20,7 @@ and syntax checking in development mode and minification for production mode
  ├─┬ prod
  │ ├── clean:styles
  │ └── clean:scripts
- ├── watch
- ├── bower:styles
- ├── bower:scripts
- ├── bower:images
- ├── bower:fonts
- ├── clean:dist
- ├── clean:styles
- ├── clean:scripts
- ├── clean:vendor_dist
- ├── clean:vendor_install
- ├── clean:all
- ├─┬ default
- │ └── clean:all
- ├── fonts
- ├── images
- ├── install:dependecies
- ├── markup
- ├── scripts
- └── styles
+ └── watch
 ```
 
 
