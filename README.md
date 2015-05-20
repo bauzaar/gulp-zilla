@@ -10,12 +10,16 @@ and syntax checking in development mode and minification for production mode
 
 ```bash
  $ gulp --tasks
- ├─┬ dev
- ├─┬ prod
+ ├── install
  ├─┬ vendor
  │ ├── clean:vendor_install
  │ └── clean:vendor_dist
- ├── install
+ ├─┬ dev
+ │ ├── clean:styles
+ │ └── clean:scripts
+ ├─┬ prod
+ │ ├── clean:styles
+ │ └── clean:scripts
  ├── watch
  ├── bower:styles
  ├── bower:scripts
@@ -52,25 +56,6 @@ $.gulp.task('install', function () {
 });
 ```
 
-### build
-
-Run this task to:
-
-- clean any already generated JS/CSS file 
-- compile your SASS files to one unified file (with sourcemaps enabled) and minified CSS file removing 
-sourcemaps if --prod flag is true
-
-and, parallelly:
-- compile your JS browserify files to one unified file (with sourcemaps enabled) and uglified JS file removing 
-  sourcemaps if --prod flag is true
-
-``` javascript
-$.gulp.task('build',['clean:styles', 'clean:scripts'], function () {
-    process.prod = !!$.argv.prod;
-    $.run_sequence(['styles', 'scripts', 'fonts']);
-});
-```
-
 ### vendor
 
 This task create a vendor folder into your static with your plugins 
@@ -82,6 +67,42 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
     $.run('bower-installer').exec(function () {
         $.run_sequence(['bower:scripts', 'bower:styles', 'bower:fonts', 'bower:images']);
     });
+});
+```
+
+### dev
+
+Run this task to:
+
+- clean any already generated JS/CSS file 
+- compile your SASS files to one unified file (with sourcemaps enabled)
+
+and, parallelly:
+- compile your JS browserify files to one unified file (with sourcemaps enabled)
+
+``` javascript
+$.gulp.task('dev', ['clean:styles', 'clean:scripts'], function () {
+    process.prod = false;
+    $.run_sequence(['styles', 'scripts', 'fonts']);
+});
+```
+
+### prod
+
+Run this task to:
+
+- clean any already generated JS/CSS file 
+- compile your SASS files to one unified file and minified CSS file removing 
+sourcemaps
+
+and, parallelly:
+- compile your JS browserify files to one unified file and uglified JS file removing 
+  sourcemaps
+
+``` javascript
+$.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
+    process.prod = true;
+    $.run_sequence(['styles', 'scripts', 'fonts']);
 });
 ```
 
