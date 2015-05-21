@@ -26,8 +26,8 @@ $.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
 });
 
 $.gulp.task('watch', function () {
-    $.gulp.watch(config.watch['styles'], ['clean:styles', 'styles:build']);
-    $.gulp.watch(config.watch['scripts'], ['clean:scripts', 'scripts:build']);
-    $.gulp.watch(config.watch['markup'], ['markup:watch']);
-    $.gulp.watch(config.watch['bower'], ['vendor']);
+    $.gulp.watch(config.watch['styles'], { interval: 900 }, ['clean:styles', 'styles:build']);
+    $.gulp.watch(config.watch['scripts'], { interval: 900 },  ['clean:scripts', 'scripts:build']);
+    $.gulp.watch(config.watch['markup'], { interval: 900 },  ['markup:watch']);
+    $.gulp.watch(config.watch['bower'], { interval: 900 },  ['vendor']);
 });
