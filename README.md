@@ -279,10 +279,10 @@ For verify if node_modules need an update install npm-check-updates
 $ sudo npm install -g npm-check-updates
 ```
 
-and then you can update modules version running
+and then you can update all modules version running
 
 ``` bash
-$ npm-check-updates -u
+$ npm-check-updates -u && npm update
 ```
 
 Now you must simpy include css and js dist into your base template
