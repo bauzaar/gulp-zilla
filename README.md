@@ -276,7 +276,7 @@ require('gulp-zilla')();
 For verify if node_modules need an update install npm-check-updates
 
 ``` bash
-$ sudo npm install -g npm-check-updates
+$ npm-check-updates
 ```
 
 and then you can update all modules version running
