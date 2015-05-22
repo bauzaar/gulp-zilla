@@ -17,17 +17,17 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
 
 $.gulp.task('dev', ['clean:styles', 'clean:scripts'], function () {
     process.prod = false;
-    $.run_sequence(['styles:build', 'scripts:build', 'fonts:build']);
+    $.run_sequence(['sass:build', 'js:build', 'fonts:build']);
 });
 
 $.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
     process.prod = true;
-    $.run_sequence(['styles:build', 'scripts:build', 'fonts:build']);
+    $.run_sequence(['sass:build', 'js:build', 'fonts:build']);
 });
 
 $.gulp.task('watch', function () {
-    $.gulp.watch(config.watch['styles'], { interval: 900 }, ['clean:styles', 'styles:build']);
-    $.gulp.watch(config.watch['scripts'], { interval: 900 },  ['clean:scripts', 'scripts:build']);
+    $.gulp.watch(config.watch['styles'], { interval: 900 }, ['clean:styles', 'sass:build']);
+    $.gulp.watch(config.watch['scripts'], { interval: 900 },  ['clean:scripts', 'js:build']);
     $.gulp.watch(config.watch['markup'], { interval: 900 },  ['markup:watch']);
     $.gulp.watch(config.watch['bower'], { interval: 900 },  ['vendor']);
 });
