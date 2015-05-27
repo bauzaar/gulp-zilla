@@ -28,7 +28,7 @@ $.gulp.task('bower:scripts', function () {
     return $.gulp.src(config.bower['src'] + '/**/**.js')
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.js'))
-        .pipe($.uglify())
+        .pipe($.gulp_if(!process.prod, $.uglify()))
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
         .pipe($.size({showFiles: true}));
