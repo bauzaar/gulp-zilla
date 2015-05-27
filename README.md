@@ -85,7 +85,7 @@ and, parallelly:
 ``` javascript
 $.gulp.task('dev', ['clean:styles', 'clean:scripts'], function () {
     process.prod = false;
-    $.run_sequence(['styles', 'scripts', 'fonts']);
+    $.run_sequence(['sass:build', 'js:build', 'fonts:build']);
 });
 ```
 
@@ -104,7 +104,7 @@ and, parallelly:
 ``` javascript
 $.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
     process.prod = true;
-    $.run_sequence(['styles', 'scripts', 'fonts']);
+    $.run_sequence(['sass:build', 'js:build', 'fonts:build']);
 });
 ```
 
@@ -116,10 +116,10 @@ To use this you have to install livereload.
 
 ``` javascript
 $.gulp.task('watch', function () {
-    $.gulp.watch(config.watch['styles'], ['clean:css', 'sass:dev']);
-    $.gulp.watch(config.watch['scripts'], ['clean:js', 'browserify:dev']);
-    $.gulp.watch(config.watch['markup'], ['markup']);
-    $.gulp.watch(config.watch['bower'], ['vendor']);
+    $.gulp.watch(config.watch['styles'], { interval: 900 }, ['clean:styles', 'sass:build']);
+    $.gulp.watch(config.watch['scripts'], { interval: 900 },  ['clean:scripts', 'js:build']);
+    $.gulp.watch(config.watch['markup'], { interval: 900 },  ['markup:watch']);
+    $.gulp.watch(config.watch['bower'], { interval: 900 },  ['vendor']);
 });
 ```
 
