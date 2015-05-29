@@ -2,5 +2,6 @@ var config = require('../../lib/config'),
     $ = config.plugins;
 
 $.gulp.task('default', ['clean:all'], function(){
-    $.run_sequence(['vendor', 'dev']);
+    process.prod = false;
+    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
 });
