@@ -16,7 +16,6 @@ and syntax checking in development mode and minification for production mode
  Main Tasks
  ------------------------------
      default
-     dev
      install
      ls
      prod
@@ -72,7 +71,7 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
 });
 ```
 
-### dev
+### default
 
 Run this task to:
 
@@ -83,9 +82,9 @@ and, parallelly:
 - compile your JS browserify files to one unified file (with sourcemaps enabled)
 
 ``` javascript
-$.gulp.task('dev', ['clean:styles', 'clean:scripts'], function () {
+$.gulp.task('default', ['clean:all'], function(){
     process.prod = false;
-    $.run_sequence(['sass:build', 'js:build', 'fonts:build']);
+    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
 });
 ```
 
@@ -102,9 +101,9 @@ and, parallelly:
   sourcemaps
 
 ``` javascript
-$.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
+$.gulp.task('prod', ['clean:all'], function () {
     process.prod = true;
-    $.run_sequence(['sass:build', 'js:build', 'fonts:build']);
+    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
 });
 ```
 
