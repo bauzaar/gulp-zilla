@@ -10,7 +10,7 @@ function create_src_stack(vendor_src, vendor_files) {
 }
 
 $.gulp.task('bower:styles', function () {
-    return $.gulp.src(config.bower['src'] + '/**/**.css')
+    return $.gulp.src(config.bower['src'] + '/**/*.css')
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.css'))
         .pipe($.replace(/([^'"(]*fonts\/|font\/|images\/|img\/)/g, './'))
@@ -25,7 +25,7 @@ $.gulp.task('bower:styles', function () {
 });
 
 $.gulp.task('bower:scripts', function () {
-    return $.gulp.src(config.bower['src'] + '/**/**.js')
+    return $.gulp.src(config.bower['src'] + '/**/*.js')
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.js'))
         .pipe($.gulp_if(!process.prod, $.uglify()))
@@ -35,7 +35,7 @@ $.gulp.task('bower:scripts', function () {
 });
 
 $.gulp.task('bower:images', function () {
-    return $.gulp.src(create_src_stack(config.bower['images'], '/**.{gif,png,jpg,jpeg,cur}'))
+    return $.gulp.src(create_src_stack(config.bower['images'], '/*.{gif,png,jpg,jpeg,cur}'))
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
         .pipe($.size({showFiles: true}))
