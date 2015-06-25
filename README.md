@@ -20,7 +20,7 @@ and syntax checking in development mode and minification for production mode
      ls
      prod
      vendor
-     watch
+     serve
  
  Sub Tasks
  ------------------------------
@@ -37,7 +37,7 @@ and syntax checking in development mode and minification for production mode
      fonts:build
      images:build
      install:dependecies
-     markup:watch
+     markup:serve
      scripts:build
      styles:build
 ```
@@ -107,18 +107,18 @@ $.gulp.task('prod', ['clean:all'], function () {
 });
 ```
 
-### watch
+### serve
 
 When you run this task, it will watch your project for changes.
 To use this you have to install livereload.
 
 
 ``` javascript
-$.gulp.task('watch', function () {
-    $.gulp.watch(config.watch['styles'], { interval: 900 }, ['clean:styles', 'sass:build']);
-    $.gulp.watch(config.watch['scripts'], { interval: 900 },  ['clean:scripts', 'js:build']);
-    $.gulp.watch(config.watch['markup'], { interval: 900 },  ['markup:watch']);
-    $.gulp.watch(config.watch['bower'], { interval: 900 },  ['vendor']);
+$.gulp.task('serve', function () {
+    $.gulp.watch(config.serve['styles'], { interval: 900 }, ['clean:styles', 'sass:build']);
+    $.gulp.watch(config.serve['scripts'], { interval: 900 },  ['clean:scripts', 'js:build']);
+    $.gulp.watch(config.serve['markup'], { interval: 900 },  ['html:serve']);
+    $.gulp.watch(config.serve['bower'], { interval: 900 },  ['vendor']);
 });
 ```
 

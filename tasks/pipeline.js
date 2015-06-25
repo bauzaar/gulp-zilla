@@ -20,9 +20,9 @@ $.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
     $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
 });
 
-$.gulp.task('watch', function () {
-    $.gulp.watch(config.watch['styles'], { interval: 900 }, ['clean:styles', 'sass:build']);
-    $.gulp.watch(config.watch['scripts'], { interval: 900 },  ['clean:scripts', 'js:build']);
-    $.gulp.watch(config.watch['markup'], { interval: 900 },  ['markup:watch']);
-    $.gulp.watch(config.watch['bower'], { interval: 900 },  ['vendor']);
+$.gulp.task('serve', function () {
+    $.gulp.watch(config.serve['styles'], { interval: 900 }, ['clean:styles', 'sass:build']);
+    $.gulp.watch(config.serve['scripts'], { interval: 900 },  ['clean:scripts', 'js:build']);
+    $.gulp.watch(config.serve['markup'], { interval: 900 },  ['html:serve']);
+    $.gulp.watch(config.serve['bower'], { interval: 900 },  ['vendor']);
 });
