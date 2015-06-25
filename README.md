@@ -42,87 +42,7 @@ and syntax checking in development mode and minification for production mode
      styles:build
 ```
 
-
-## Tasks
-
-### install
-
-Run this task to install bower and npm project's dependencies
-
-``` javascript
-$.gulp.task('install', function () {
-    $.run('npm cache clean').exec(function () {
-        $.run_sequence('install:dependecies');
-    });
-});
-```
-
-### vendor
-
-This task create a vendor folder into your static with your plugins 
-(images, fonts, and various assets of your choice), then 
-create two files vendor.js and vendor.css and exports those (including assets) to dist folder.
-
-``` javascript
-$.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
-    $.run('bower-installer').exec(function () {
-        $.run_sequence(['bower:scripts', 'bower:styles', 'bower:fonts', 'bower:images']);
-    });
-});
-```
-
-### default
-
-Run this task to:
-
-- clean any already generated JS/CSS file 
-- compile your SASS files to one unified file (with sourcemaps enabled)
-
-and, parallelly:
-- compile your JS browserify files to one unified file (with sourcemaps enabled)
-
-``` javascript
-$.gulp.task('default', ['clean:all'], function(){
-    process.prod = false;
-    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
-});
-```
-
-### prod
-
-Run this task to:
-
-- clean any already generated JS/CSS file 
-- compile your SASS files to one unified file and minified CSS file removing 
-sourcemaps
-
-and, parallelly:
-- compile your JS browserify files to one unified file and uglified JS file removing 
-  sourcemaps
-
-``` javascript
-$.gulp.task('prod', ['clean:all'], function () {
-    process.prod = true;
-    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
-});
-```
-
-### serve
-
-When you run this task, it will watch your project for changes.
-To use this you have to install livereload.
-
-
-``` javascript
-$.gulp.task('serve', function () {
-    $.gulp.watch(config.serve['styles'], { interval: 900 }, ['clean:styles', 'sass:build']);
-    $.gulp.watch(config.serve['scripts'], { interval: 900 },  ['clean:scripts', 'js:build']);
-    $.gulp.watch(config.serve['markup'], { interval: 900 },  ['html:serve']);
-    $.gulp.watch(config.serve['bower'], { interval: 900 },  ['vendor']);
-});
-```
-
-## Install
+## Get Started
 
 Before get started with gulp-zilla, you must verify that gulp and bower are installed globally
 
@@ -292,6 +212,85 @@ Now you must simpy include css and js dist into your base template
 ...
 <script src="path/to/static/_dist/vendor.js"></script>
 <script src="path/to/static/_dist/site.js"></script>
+```
+
+## Tasks
+
+### install
+
+Run this task to install bower and npm project's dependencies
+
+``` javascript
+$.gulp.task('install', function () {
+    $.run('npm cache clean').exec(function () {
+        $.run_sequence('install:dependecies');
+    });
+});
+```
+
+### vendor
+
+This task create a vendor folder into your static with your plugins 
+(images, fonts, and various assets of your choice), then 
+create two files vendor.js and vendor.css and exports those (including assets) to dist folder.
+
+``` javascript
+$.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function () {
+    $.run('bower-installer').exec(function () {
+        $.run_sequence(['bower:scripts', 'bower:styles', 'bower:fonts', 'bower:images']);
+    });
+});
+```
+
+### default
+
+Run this task to:
+
+- clean any already generated JS/CSS file 
+- compile your SASS files to one unified file (with sourcemaps enabled)
+
+and, parallelly:
+- compile your JS browserify files to one unified file (with sourcemaps enabled)
+
+``` javascript
+$.gulp.task('default', ['clean:all'], function(){
+    process.prod = false;
+    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
+});
+```
+
+### prod
+
+Run this task to:
+
+- clean any already generated JS/CSS file 
+- compile your SASS files to one unified file and minified CSS file removing 
+sourcemaps
+
+and, parallelly:
+- compile your JS browserify files to one unified file and uglified JS file removing 
+  sourcemaps
+
+``` javascript
+$.gulp.task('prod', ['clean:all'], function () {
+    process.prod = true;
+    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
+});
+```
+
+### serve
+
+When you run this task, it will watch your project for changes.
+To use this you have to install livereload.
+
+
+``` javascript
+$.gulp.task('serve', function () {
+    $.gulp.watch(config.serve['styles'], { interval: 900 }, ['clean:styles', 'sass:build']);
+    $.gulp.watch(config.serve['scripts'], { interval: 900 },  ['clean:scripts', 'js:build']);
+    $.gulp.watch(config.serve['markup'], { interval: 900 },  ['html:serve']);
+    $.gulp.watch(config.serve['bower'], { interval: 900 },  ['vendor']);
+});
 ```
 
 ## License
