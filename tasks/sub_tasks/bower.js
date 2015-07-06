@@ -28,21 +28,7 @@ $.gulp.task('bower:scripts', function () {
     return $.gulp.src(config.bower['src'] + '/**/*.js')
         .pipe($.order(config.bower['order']))
         .pipe($.concat(config.bower['output_name'] + '.js'))
-        .pipe($.gulp_if(!process.prod, $.uglify({
-                mangle: true,
-                compress: {
-                    sequences: true,
-                    dead_code: true,
-                    conditionals: true,
-                    booleans: true,
-                    unused: true,
-                    if_return: true,
-                    join_vars: true,
-                    drop_console: true
-                },
-                preserveComments: null
-            })
-        ))
+        .pipe($.uglify({mangle:true}))
         .pipe($.gulp.dest(config.bower['dest']))
         .on('error', config.lib['errors'])
         .pipe($.size({showFiles: true}));
