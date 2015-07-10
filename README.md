@@ -18,9 +18,10 @@ and syntax checking in development mode and minification for production mode
      default
      install
      ls
+     mail
      prod
-     vendor
      serve
+     vendor
  
  Sub Tasks
  ------------------------------
@@ -30,16 +31,19 @@ and syntax checking in development mode and minification for production mode
      bower:styles
      clean:all
      clean:dist
+     clean:mail
      clean:scripts
      clean:styles
      clean:vendor_dist
      clean:vendor_install
      fonts:build
+     html:serve
      images:build
      install:dependecies
-     markup:serve
-     scripts:build
-     styles:build
+     js:build
+     mail:inject_style
+     mail:inline_css
+     sass:build
 ```
 
 ## Get Started
@@ -87,7 +91,7 @@ Create a bower.json into your project root
     "word-1",
     "word-2"
   ],
-  "license": "MIT",
+  "license": "BSD-2-Clause-FreeBSD",
   "homepage": "http://project-name.com",
   "private": true,
   "ignore": [
@@ -162,9 +166,14 @@ var root_dir = process.cwd(),
     bower_dir = './bower_components/';
 
 process.GULP_ZILLA = {
+  gulp: require('gulp'),
   base: root_dir + './path/to/base_folder',
-  static: '/path/to/static_folder/',
+  static_dir: '/path/to/static_folder/',
   templates: '/path/to/templates_folder/',
+  bower_dir: bower_dir,
+  mail: {
+        templates: root_dir + '/path/to/templates_folder'
+  },
   vendor: {
     gulp: require('gulp'),
     order: [
@@ -293,9 +302,26 @@ $.gulp.task('serve', function () {
 });
 ```
 
+### mail
+
+Run this task to:
+
+- clean any already generated inlined mail templates
+- inline your CSS class to multiple html templates
+
+and, parallelly:
+- inject your responsive style after the inliner
+
+``` javascript
+$.gulp.task('mail', ['clean:mail'], function () {
+    $.run_sequence('mail:inline_css', ['mail:inject_style']);
+});
+```
+
+
 ## License
 
-This project is released under the BSD license.
+This project is released under the BSD-2-Clause-FreeBSD license.
 
 
 

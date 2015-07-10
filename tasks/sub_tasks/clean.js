@@ -2,23 +2,27 @@ var config = require('../../lib/config'),
     $ = config.plugins;
 
 $.gulp.task('clean:dist', function () {
-    $.del(config.clean.dist)
+    $.del(config.clean['dist'])
 });
 
 $.gulp.task('clean:styles', function () {
-    $.del(config.clean.css)
+    $.del(config.clean['css'])
 });
 
 $.gulp.task('clean:scripts', function () {
-    $.del(config.clean.js)
+    $.del(config.clean['js'])
 });
 
 $.gulp.task('clean:vendor_dist', function () {
-    $.del(config.clean.vendor_dist)
+    $.del(config.clean['vendor_dist'])
 });
 
 $.gulp.task('clean:vendor_install', function () {
-    $.del([config.clean.vendor_install])
+    $.del(config.clean['vendor_install'])
+});
+
+$.gulp.task('clean:mail', function () {
+    $.del(config.clean['mail_inlined'])
 });
 
 $.gulp.task('clean:all', function () {
