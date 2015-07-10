@@ -7,6 +7,7 @@ to manage development and production tasks with ease.
 and syntax checking in development mode and minification for production mode
 - Advanced Bower integration
 - Watch changed files with [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) integration
+- Mail inliner 
 
 ```bash
  gulp ls
