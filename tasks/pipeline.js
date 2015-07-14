@@ -21,7 +21,7 @@ $.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
 });
 
 $.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
-    $.run_sequence('sass:mail', ['mail:inline_css'], ['mail:inject_style']);
+    $.run_sequence('sass:mail', ['mail:inliner'], ['mail:inject']);
 });
 
 $.gulp.task('serve', function () {

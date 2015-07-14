@@ -43,8 +43,8 @@ and syntax checking in development mode and minification for production mode
     images:build
     install:dependecies
     js:build
-    mail:inject_style
-    mail:inline_css
+    mail:inject
+    mail:inliner
     sass:build
     sass:mail
 ```
@@ -319,7 +319,7 @@ and, parallelly:
 
 ``` javascript
 $.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
-    $.run_sequence('sass:mail', ['mail:inline_css'], ['mail:inject_style']);
+    $.run_sequence('sass:mail', ['mail:inliner'], ['mail:inject']);
 });
 ```
 
