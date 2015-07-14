@@ -17,3 +17,15 @@ $.gulp.task('sass:build', function () {
         .pipe($.size({showFiles: true}))
         .pipe($.gulp_if(!process.prod, $.livereload()));
 });
+
+$.gulp.task('sass:mail', function () {
+    return $.gulp.src(config.mail.styles['sass'])
+        .pipe($.changed(config.mail.styles['dest']))
+        .pipe($.globbing({extensions: ['.scss', '.sass']}))
+        .pipe($.sass(config.sass['settings']))
+        .on('error', config.lib['errors'])
+        .pipe($.gulp.dest(config.mail.styles['dest']))
+        .pipe($.gulp_if(!process.prod, $.browser_sync.reload({stream: true})))
+        .pipe($.size({showFiles: true}))
+        .pipe($.gulp_if(!process.prod, $.livereload()));
+});

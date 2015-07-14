@@ -173,7 +173,8 @@ process.GULP_ZILLA = {
   templates: '/path/to/templates_folder/',
   bower_dir: bower_dir,
   mail: {
-        templates: root_dir + '/path/to/templates_folder'
+    styles: root_dir + '/path/to/styles_folder',
+    templates: root_dir + '/path/to/templates_folder'
   },
   vendor: {
     gulp: require('gulp'),
@@ -315,8 +316,8 @@ and, parallelly:
 - inject your responsive style after the inliner
 
 ``` javascript
-$.gulp.task('mail', ['clean:mail'], function () {
-    $.run_sequence('mail:inline_css', ['mail:inject_style']);
+$.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
+    $.run_sequence('sass:mail', ['mail:inline_css'], ['mail:inject_style']);
 });
 ```
 

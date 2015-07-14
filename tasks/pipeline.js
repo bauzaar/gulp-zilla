@@ -20,8 +20,8 @@ $.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
     $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
 });
 
-$.gulp.task('mail', ['clean:mail'], function () {
-    $.run_sequence('mail:inline_css', ['mail:inject_style']);
+$.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
+    $.run_sequence('sass:mail', ['mail:inline_css'], ['mail:inject_style']);
 });
 
 $.gulp.task('serve', function () {

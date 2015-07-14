@@ -21,8 +21,12 @@ $.gulp.task('clean:vendor_install', function () {
     $.del(config.clean['vendor_install'])
 });
 
-$.gulp.task('clean:mail', function () {
-    $.del(config.clean['mail_inlined'])
+$.gulp.task('clean:mail_templates', function () {
+    $.del(config.clean['mail_templates'])
+});
+
+$.gulp.task('clean:mail_styles', function () {
+    $.del(config.clean['mail_styles'])
 });
 
 $.gulp.task('clean:all', function () {
