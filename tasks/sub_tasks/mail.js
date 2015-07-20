@@ -20,13 +20,13 @@ $.gulp.task('mail:inliner', function () {
 });
 
 $.gulp.task('mail:inject', function () {
-    return $.gulp.src(config.mail['templates_inlined'] + '/_extend/_extend/base.html')
+    return $.gulp.src(config.mail['templates_inlined'] + '/_extend/base.html')
         .pipe($.inject(
             $.gulp.src(config.mail.styles['dest'] + '/responsive.css', {read: false}), {
                 relative: true,
                 starttag: '<!-- inject:responsive:{{ext}} -->'
             }
         ))
-        .pipe($.gulp.dest(config.mail['templates_inlined'] + '/_extend/_extend'))
+        .pipe($.gulp.dest(config.mail['templates_inlined'] + '/_extend'))
         .pipe($.size({showFiles: true}));
 });
