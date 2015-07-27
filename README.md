@@ -26,27 +26,27 @@ and syntax checking in development mode and minification for production mode
  
  Sub Tasks
  ------------------------------
-    bower:fonts
-    bower:images
-    bower:scripts
-    bower:styles
-    clean:all
-    clean:dist
-    clean:mail_styles
-    clean:mail_templates
-    clean:scripts
-    clean:styles
-    clean:vendor_dist
-    clean:vendor_install
-    fonts:build
-    html:serve
-    images:build
-    install:dependecies
-    js:build
-    mail:inject
-    mail:inliner
-    sass:build
-    sass:mail
+     bower:fonts
+     bower:images
+     bower:scripts
+     bower:styles
+     clean:all
+     clean:dist
+     clean:mail_styles
+     clean:mail_templates
+     clean:scripts
+     clean:styles
+     clean:vendor_dist
+     clean:vendor_install
+     fonts:build
+     html:serve
+     images:build
+     install:dependecies
+     js:build
+     mail:inject
+     mail:inliner
+     sass:build
+     sass:mail
 ```
 
 ## Get Started
