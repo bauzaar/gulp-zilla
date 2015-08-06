@@ -17,7 +17,7 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
 
 $.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
     process.prod = true;
-    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build']);
+    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build'], 'mail');
 });
 
 $.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
