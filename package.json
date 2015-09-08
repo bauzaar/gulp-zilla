@@ -1,6 +1,6 @@
 {
   "name": "gulp-zilla",
-  "version": "1.7.8",
+  "version": "1.8.0",
   "description": "A bunch of useful gulp tasks",
   "author": "Fabio Cencetti <mail@kreo.me>",
   "contributors": [
@@ -38,7 +38,7 @@
   ],
   "dependencies": {
     "bower-installer": "^1.2.0",
-    "browser-sync": "^2.9.1",
+    "browser-sync": "^2.9.2",
     "browserify": "^11.0.1",
     "del": "^2.0.1",
     "fs": "0.0.2",
@@ -60,12 +60,12 @@
     "gulp-order": "^1.1.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
-    "gulp-run": "^1.6.10",
+    "gulp-run": "^1.6.11",
     "gulp-sass": "^2.0.4",
     "gulp-sequence": "^0.4.1",
     "gulp-size": "^2.0.0",
     "gulp-sourcemaps": "^1.5.2",
-    "gulp-streamify": "^1.0.0",
+    "gulp-streamify": "^1.0.2",
     "gulp-task-listing": "^1.0.1",
     "gulp-uglifyjs": "^0.6.2",
     "gulp-util": "^3.0.6",
