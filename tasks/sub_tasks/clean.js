@@ -32,3 +32,7 @@ $.gulp.task('clean:mail_styles', function () {
 $.gulp.task('clean:all', function () {
     $.run_sequence(['clean:dist','clean:vendor_install']);
 });
+
+$.gulp.task('clean:3rd', function() {
+    $.del(config.clean['3rd'])
+});

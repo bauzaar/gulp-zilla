@@ -36,7 +36,7 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
 
 $.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
     process.prod = true;
-    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build', 'sass:gui'], 'mail', '3rd');
+    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build', 'sass:gui', 'mail', '3rd']);
 });
 
 $.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
@@ -46,7 +46,9 @@ $.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
 $.gulp.task('serve', function () {
     $.gulp.watch(config.serve['styles'], {interval: 900}, ['clean:styles', 'sass:build']);
     $.gulp.watch(config.serve['scripts'], {interval: 900}, ['clean:scripts', 'js:build']);
+    $.gulp.watch(config.serve['third_party_libs'], {interval: 900}, ['3rd']);
     $.gulp.watch(config.serve['markup'], {interval: 900}, ['html:serve']);
-    $.gulp.watch(config.serve['mail'], {interval: 900}, ['mail']);
+    $.gulp.watch(config.serve.mail['styles'], {interval: 900}, ['mail']);
+    $.gulp.watch(config.serve.mail['templates'], {interval: 900}, ['mail']);
     $.gulp.watch(config.serve['bower'], {interval: 900}, ['vendor']);
 });
