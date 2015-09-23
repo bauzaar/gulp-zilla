@@ -5,8 +5,12 @@ $.gulp.task('clean:dist', function () {
     $.del(config.clean['dist'])
 });
 
-$.gulp.task('clean:styles', function () {
-    $.del(config.clean['css'])
+$.gulp.task('clean:app', function () {
+    $.del(config.clean.sass['app'])
+});
+
+$.gulp.task('clean:gui', function () {
+    $.del(config.clean.sass['gui'])
 });
 
 $.gulp.task('clean:scripts', function () {

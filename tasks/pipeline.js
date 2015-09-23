@@ -34,9 +34,9 @@ $.gulp.task('vendor', ['clean:vendor_install', 'clean:vendor_dist'], function ()
     });
 });
 
-$.gulp.task('prod', ['clean:styles', 'clean:scripts'], function () {
+$.gulp.task('prod', ['clean:all'], function () {
     process.prod = true;
-    $.run_sequence('vendor', ['sass:build', 'js:build', 'fonts:build', 'sass:gui', 'mail', '3rd']);
+    $.run_sequence('vendor', ['sass:build', 'sass:gui', 'js:build', 'fonts:build', 'mail', '3rd']);
 });
 
 $.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
