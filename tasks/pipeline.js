@@ -44,7 +44,7 @@ $.gulp.task('mail', ['clean:mail_styles', 'clean:mail_templates'], function () {
 });
 
 $.gulp.task('serve', function () {
-    $.gulp.watch(config.serve['styles'], {interval: 900}, ['clean:styles', 'sass:build']);
+    $.gulp.watch(config.serve['styles'], {interval: 900}, ['clean:app', 'clean:gui', 'sass:build']);
     $.gulp.watch(config.serve['scripts'], {interval: 900}, ['clean:scripts', 'js:build']);
     $.gulp.watch(config.serve['third_party_libs'], {interval: 900}, ['3rd']);
     $.gulp.watch(config.serve['markup'], {interval: 900}, ['html:serve']);
