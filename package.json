@@ -1,6 +1,6 @@
 {
   "name": "gulp-zilla",
-  "version": "1.8.6",
+  "version": "1.8.7",
   "description": "A bunch of useful gulp tasks",
   "author": "Fabio Cencetti <mail@kreo.me>",
   "contributors": [
@@ -89,7 +89,9 @@
     "vinyl-transform": "^1.0.0",
     "yargs": "^3.26.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp-debug": "^2.1.0"
+  },
   "preferGlobal": true,
   "private": false,
   "publishConfig": {},

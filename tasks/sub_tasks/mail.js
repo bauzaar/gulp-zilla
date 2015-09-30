@@ -29,21 +29,8 @@ $.gulp.task('mail:inject', function () {
                 starttag: '<!-- inject:responsive:{{ext}} -->'
             }
         ))
+        //.pipe($.debug())
+        .pipe($.inject_style())
         .pipe($.gulp.dest(config.mail.templates_inlined + '/_extend'))
         .pipe($.size({showFiles: true}));
 });
-
-
-// $.gulp.task('mail:inline_style', function () {
-//     return $.gulp.src(config.mail.templates_inlined + '/_extend/base.html')
-//         .pipe($.inject(
-//             $.gulp.src(config.mail.styles.dest + '/responsive.css', {read: false}), {
-//                 relative: true,
-//                 starttag: '<!-- inject:responsive:{{ext}} -->'
-//             }
-//         ))
-//         .pipe($.gulp.dest(config.mail.templates_inlined + '/_extend'))
-//         .pipe($.size({showFiles: true}));
-// });
-
-// @TODO nuovo task per mail:inline_style
