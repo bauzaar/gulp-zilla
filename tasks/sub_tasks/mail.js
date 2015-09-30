@@ -29,8 +29,18 @@ $.gulp.task('mail:inject', function () {
                 starttag: '<!-- inject:responsive:{{ext}} -->'
             }
         ))
-        //.pipe($.debug())
-        .pipe($.inject_style())
+        .pipe($.gulp.dest(config.mail.templates_inlined + '/_extend'))
+        .pipe($.size({showFiles: true}));
+});
+
+
+$.gulp.task('mail:split_style', function () {
+    return $.gulp.src(config.mail.templates_inlined + '/_extend/base.html')
+      .pipe($.debug())
+        .pipe($.replace(/<link.*?href="(.+?\.css)"[^>]*>/g, function(s, filename) {
+          var style = $.fs.readFileSync(filename, 'utf8');
+          return '<style>\n' + style + '\n</style>';
+        }))
         .pipe($.gulp.dest(config.mail.templates_inlined + '/_extend'))
         .pipe($.size({showFiles: true}));
 });
