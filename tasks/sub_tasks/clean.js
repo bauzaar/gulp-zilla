@@ -1,42 +1,52 @@
 var config = require('../../lib/config'),
     $ = config.plugins;
 
+
 $.gulp.task('clean:dist', function () {
-    $.del(config.clean['dist'])
+    $.del(config.clean.dist);
 });
+
 
 $.gulp.task('clean:app', function () {
-    $.del(config.clean.sass['app'])
+    $.del(config.clean.sass.app);
 });
+
 
 $.gulp.task('clean:gui', function () {
-    $.del(config.clean.sass['gui'])
+    $.del(config.clean.sass.gui);
 });
+
 
 $.gulp.task('clean:scripts', function () {
-    $.del(config.clean['js'])
+    $.del(config.clean.js);
 });
+
 
 $.gulp.task('clean:vendor_dist', function () {
-    $.del(config.clean['vendor_dist'])
+    $.del(config.clean.vendor_dist);
 });
+
 
 $.gulp.task('clean:vendor_install', function () {
-    $.del(config.clean['vendor_install'])
+    $.del(config.clean.vendor_install);
 });
+
 
 $.gulp.task('clean:mail_templates', function () {
-    $.del(config.clean['mail_templates'])
+    $.del(config.clean.mail_templates);
 });
 
+
 $.gulp.task('clean:mail_styles', function () {
-    $.del(config.clean['mail_styles'])
+    $.del(config.clean.mail_styles);
 });
+
 
 $.gulp.task('clean:all', function () {
     $.run_sequence(['clean:dist','clean:vendor_install']);
 });
 
-$.gulp.task('clean:3rd', function() {
-    $.del(config.clean['3rd'])
+
+$.gulp.task('clean:libs_3rd', function() {
+    $.del(config.clean.libs_3rd);
 });
