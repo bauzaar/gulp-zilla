@@ -24,9 +24,12 @@ $.gulp.task('mail:inliner', function () {
 $.gulp.task('mail:inject', function () {
     return $.gulp.src(config.mail.templates_inlined + '/_extend/base.html')
         .pipe($.inject(
-            $.gulp.src(config.mail.styles.dest + '/responsive.css', {read: false}), {
+            $.gulp.src(config.mail.styles.dest + '/responsive.css', {read: true}), {
                 relative: true,
-                starttag: '<!-- inject:responsive:{{ext}} -->'
+                starttag: '<!-- inject:responsive:{{ext}} -->',
+                transform: function(filePath, file) {
+                  return "<style>" + file.contents.toString('utf8') + "</style>";
+                }
             }
         ))
         .pipe($.gulp.dest(config.mail.templates_inlined + '/_extend'))
